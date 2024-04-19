@@ -1,0 +1,73 @@
+@import '/src/styles/variables.scss';
+
+.layout {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--color-background);
+}
+.container,
+.errorContainer {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1344px; // 1296 + padding
+  padding-left: 24px;
+  padding-right: 24px;
+  @media (max-width: $bp-mobile) {
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 324px; // 304 + padding
+  }
+}
+.errorContainer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.box {
+  margin: 3vh auto;
+  width: 100%;
+  max-width: 636px;
+  border-radius: 60px;
+  overflow: hidden;
+  @media (max-width: $bp-mobile) {
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+.innerBox {
+  position: relative;
+  z-index: 21;
+  background-color: var(--color-white);
+  @media (max-width: $bp-mobile) {
+    padding: 0;
+  }
+}
+
+.header,
+.footer {
+  position: relative;
+  z-index: 20;
+  flex: 0 0 auto;
+  background-color: var(--color-white);
+  @media (max-width: $bp-mobile) {
+    box-shadow: none;
+  }
+}
+.main {
+  flex: 1 1 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  @media (max-width: $bp-mobile) {
+    z-index: 21;
+    background-color: var(--color-white);
+  }
+}
+
+.technicalAlert {
+  position: relative;
+  z-index: 999;
+}

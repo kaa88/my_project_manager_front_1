@@ -1,0 +1,12 @@
+// Transitions //
+$timer-hover: 0.15s;
+$timer-sidebar: 0.2s;
+$timer-menu: 0.2s;
+$timer-popup: 0.2s;
+
+$bootstrap-button-transition:
+  color $timer-hover ease-in-out,
+  fill $timer-hover ease-in-out,
+  background-color $timer-hover ease-in-out,
+  border-color $timer-hover ease-in-out,
+  box-shadow $timer-hover ease-in-out;

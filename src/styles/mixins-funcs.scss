@@ -1,0 +1,28 @@
+@use 'sass:math';
+
+// Mixins //
+@mixin text-nowrap() {
+  // устанавливает макс. высоту текстового эл-та в одну строку с троеточием в конце (если не помещается)
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin text-max-lines($lines) {
+  // устанавливает макс. высоту текстового эл-та, значение аргумента = кол-во строк, остальные строки скрываются
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+}
+
+// Functions //
+@function em($px, $context: 16) {
+  @return math.div($px, $context) * 1em;
+  // функция принимает размер в 'px' по макету и пересчитывает в 'em', пример: width: em(45);
+  // context - пересчет относительно текущего эл-та. например, если нужно задать ширину текстового блока, но font-size блока установлен 30:
+  // font-size: 30px;
+  // width: em(720, 30); - получится ширина 720 по макету
+}
+@function rem($px, $context: 16) {
+  @return math.div($px, $context) * 1rem;
+}

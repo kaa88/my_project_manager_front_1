@@ -1,0 +1,83 @@
+// Global elements //
+
+@import '/src/styles/variables.scss';
+
+// Импорт основных стилей React-Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+html {
+  font-size: 16px;
+}
+body {
+  --bs-body-font-family: var(--font-main);
+  --bs-body-font-size: inherit;
+  --bs-body-font-weight: 400;
+  --bs-body-line-height: 1.5;
+  --bs-body-bg: var(--color-background);
+  --bs-body-color: var(--color-text);
+
+  min-width: calc(315px - (100vw - 100%));
+  fill: var(--color-text);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+}
+h1 {
+  font-size: 40px;
+  @media (max-width: ($bp-mobile)) {
+    font-size: 28px;
+  }
+}
+h2 {
+  font-size: 32px;
+  @media (max-width: ($bp-mobile)) {
+    font-size: 24px;
+  }
+}
+h3 {
+  font-size: 28px;
+  @media (max-width: ($bp-mobile)) {
+    font-size: 20px;
+  }
+}
+h4 {
+  font-size: 24px;
+}
+
+.boxshadow {
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  --bs-btn-active-bg: rgba(255, 180, 168, 1);
+}
+
+.tooltip {
+  --bs-tooltip-max-width: 276px;
+  --bs-tooltip-height: 200px;
+  --bs-tooltip-color: var(--color-midgrey);
+  --bs-tooltip-bg: var(--color-white);
+  --bs-tooltip-opacity: 1;
+  --bs-tooltip-font-size: 14px;
+  --bs-tooltip-padding-x: 16px;
+  --bs-tooltip-padding-y: 16px;
+}
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 375px,
+  md: 768px,
+  lg: 1280px,
+  xl: 1440px,
+  xxl: 1920px,
+);

@@ -1,0 +1,11 @@
+// SCSS Variables //
+@forward 'mixins-funcs';
+@forward 'breakpoints';
+@forward 'transitions';
+
+// z-index layers (not being used in components yet)
+$z-index-header: 100;
+$z-index-menu: 400;
+$z-index-sidebar: 300;
+$z-index-popup: 200;
+$z-index-modal: 500;
