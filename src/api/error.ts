@@ -2,7 +2,9 @@ import { AxiosError, AxiosHeaders } from "axios";
 
 export const ERROR_BAD_REQUEST = 400;
 export const ERROR_UNAUTHORIZED = 401;
+export const ERROR_NO_CREDENTIALS = 403;
 export const ERROR_NOT_FOUND = 404;
+export const ERROR_DISTRIBUTION_CANCELLED = 409;
 export const ERROR_INTERNAL = 500;
 export const MISSING_FETCH_DATA_MESSAGE = "Missing required query data";
 
@@ -15,7 +17,7 @@ export interface ThunkApiErrorObj {
   data?: any;
 }
 
-export const apiError = {
+export const ApiError = {
   getErrorInstance: (error: unknown): AxiosError => {
     let newError: AxiosError;
 
@@ -58,23 +60,17 @@ export const apiError = {
 
   getMessageFromCode: (code: StatusCode): string => {
     switch (code) {
-      // eslint-disable-next-line no-magic-numbers
-      case 400:
+      case ERROR_BAD_REQUEST:
         return "Bad request";
-      // eslint-disable-next-line no-magic-numbers
-      case 401:
+      case ERROR_UNAUTHORIZED:
         return "Wrong credentials";
-      // eslint-disable-next-line no-magic-numbers
-      case 403:
+      case ERROR_NO_CREDENTIALS:
         return "Credentials were not provided";
-      // eslint-disable-next-line no-magic-numbers
-      case 404:
+      case ERROR_NOT_FOUND:
         return "Not found";
-      // eslint-disable-next-line no-magic-numbers
-      case 409:
+      case ERROR_DISTRIBUTION_CANCELLED:
         return "Distribution cancelled";
-      // eslint-disable-next-line no-magic-numbers
-      case 500:
+      case ERROR_INTERNAL:
         return "Internal server error";
       default:
         return "Unknown error";
@@ -84,7 +80,7 @@ export const apiError = {
   getMessageFromData: (data: any): string => {
     const iterate = (arr: any[]): string => {
       const messages: string[] = arr.map((item) =>
-        apiError.getMessageFromData(item)
+        ApiError.getMessageFromData(item)
       );
       let msg = "";
 
@@ -105,11 +101,11 @@ export const apiError = {
 
   getMessageFromError: (error: ThunkApiErrorObj): string => {
     let message = error.data
-      ? apiError.getMessageFromData(error.data)
-      : apiError.getMessageFromCode(error.status || unknownCode);
+      ? ApiError.getMessageFromData(error.data)
+      : ApiError.getMessageFromCode(error.status || unknownCode);
 
     if (message.match(/!doctype/i))
-      message = apiError.getMessageFromCode(error.status || unknownCode);
+      message = ApiError.getMessageFromCode(error.status || unknownCode);
 
     return message;
   },

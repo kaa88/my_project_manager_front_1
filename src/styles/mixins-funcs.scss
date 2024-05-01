@@ -1,14 +1,12 @@
-@use 'sass:math';
+@use "sass:math";
 
 // Mixins //
 @mixin text-nowrap() {
-  // устанавливает макс. высоту текстового эл-та в одну строку с троеточием в конце (если не помещается)
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 @mixin text-max-lines($lines) {
-  // устанавливает макс. высоту текстового эл-та, значение аргумента = кол-во строк, остальные строки скрываются
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $lines;
@@ -16,13 +14,25 @@
 }
 
 // Functions //
+@function resize-multiplier($size, $media, $multiplier: 1, $base: 100vw) {
+  @return calc(
+    $size * $multiplier / $media * $base + $size * (1 - $multiplier) * 1px
+  );
+  // example: width: resize-multiplier(300, $media-footer, 0.8);
+  // size - размер элемента на границе отсчета
+  // media - граница отсчета
+  // multiplier - значения от 0 до 1 - понижающие (замедляют ресайз), от 1 и выше - повышающие (ускоряют), отрицательные значания - дают реверс
+  // base - база расчета (vw, vh, vmax...)
+}
 @function em($px, $context: 16) {
   @return math.div($px, $context) * 1em;
-  // функция принимает размер в 'px' по макету и пересчитывает в 'em', пример: width: em(45);
   // context - пересчет относительно текущего эл-та. например, если нужно задать ширину текстового блока, но font-size блока установлен 30:
   // font-size: 30px;
   // width: em(720, 30); - получится ширина 720 по макету
 }
 @function rem($px, $context: 16) {
   @return math.div($px, $context) * 1rem;
+}
+@function concat-aspect-ratio($one, $two) {
+  @return #{$one + " / " + $two};
 }

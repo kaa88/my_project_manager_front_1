@@ -1,6 +1,6 @@
-@import '/src/styles/variables.scss';
+@import "/src/styles/variables.scss";
 
-.layout {
+._ {
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -16,7 +16,7 @@
   max-width: 1344px; // 1296 + padding
   padding-left: 24px;
   padding-right: 24px;
-  @media (max-width: $bp-mobile) {
+  @media (max-width: $media-mobile) {
     padding-left: 10px;
     padding-right: 10px;
     max-width: 324px; // 304 + padding
@@ -32,7 +32,7 @@
   max-width: 636px;
   border-radius: 60px;
   overflow: hidden;
-  @media (max-width: $bp-mobile) {
+  @media (max-width: $media-mobile) {
     box-shadow: none;
     border-radius: 0;
   }
@@ -41,7 +41,7 @@
   position: relative;
   z-index: 21;
   background-color: var(--color-white);
-  @media (max-width: $bp-mobile) {
+  @media (max-width: $media-mobile) {
     padding: 0;
   }
 }
@@ -52,7 +52,7 @@
   z-index: 20;
   flex: 0 0 auto;
   background-color: var(--color-white);
-  @media (max-width: $bp-mobile) {
+  @media (max-width: $media-mobile) {
     box-shadow: none;
   }
 }
@@ -61,7 +61,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  @media (max-width: $bp-mobile) {
+  @media (max-width: $media-mobile) {
     z-index: 21;
     background-color: var(--color-white);
   }

@@ -1,8 +1,8 @@
-type IEntries = {
+type Entries = {
   [key: string]: string | number | boolean | null | undefined;
 };
 
-export const getQueryStringFromEntries = (entries: IEntries): string => {
+export const getQueryStringFromEntries = (entries: Entries): string => {
   const queryItems = Object.entries(entries)
     .filter((item) => item[1] !== undefined)
     .map(([key, value]) => `${key}=${value}`);
@@ -11,6 +11,3 @@ export const getQueryStringFromEntries = (entries: IEntries): string => {
 
   return query ? "?" + query : "";
 };
-
-export const fixUrl = (url: string | undefined): string =>
-  url ? url.replace(/\/$/, "") : "";

@@ -1,10 +1,10 @@
 import axios from "axios";
-import { fixUrl } from "./utils";
+import { fixPath } from "../utils/utils";
 
 export const api = axios.create({
-  withCredentials: true,
-  baseURL: fixUrl(process.env.REACT_APP_API_URL),
+  baseURL: fixPath(process.env.REACT_APP_API_URL),
   timeout: Number(process.env.REACT_APP_API_TIMEOUT_SEC) * 1000,
+  withCredentials: true,
 });
 
 interface AuthHeaders {

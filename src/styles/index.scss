@@ -1,9 +1,5 @@
-@import 'reset';
-@import 'variables';
-@import 'fonts';
-@import 'colors';
-@import 'global';
-
-// Примечание:
-// Для импорта SCSS переменных нужно добавить строку "@import '/src/styles/variables.scss';" в файл стилей вашего компонента (этот путь доступен при любой вложенности)
-// Цветовые переменные доступны без импорта через "var(--color-name)"
+@import "reset";
+@import "variables";
+@import "fonts";
+@import "colors";
+@import "global";
