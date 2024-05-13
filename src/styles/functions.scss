@@ -1,19 +1,5 @@
 @use "sass:math";
 
-// Mixins //
-@mixin text-nowrap() {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-@mixin text-max-lines($lines) {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: $lines;
-  overflow: hidden;
-}
-
-// Functions //
 @function resize-multiplier($size, $media, $multiplier: 1, $base: 100vw) {
   @return calc(
     $size * $multiplier / $media * $base + $size * (1 - $multiplier) * 1px
