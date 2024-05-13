@@ -3,20 +3,60 @@
 body {
   // theme-default
   --color-white: #fff;
-  --color-lightgrey: #e9e9e9;
-  --color-midgrey: #737373;
+  --color-black: #212529;
+  --color-lightgray: #e9e9e9;
+  --color-midgray: #737373;
+  --color-darkgray: #444;
+
   --color-primary: #ff735c;
   --color-primary-hover: #ffb4a8;
+
+  --color-secondary: var(--color-build-variant);
+
   --color-background: #f8f9fa;
-  --color-background-hover: #21252933;
-  --color-borders: #d2d2d2;
   --color-text: #212529;
-  --color-attention-light: #dc354526;
+  --color-borders: #d2d2d2;
+
   --color-danger: #dc3545;
   --color-success: #198754;
+
   --color-link: #0d6efd;
   --color-link-hover: #1a50df;
   --color-menu-hover: #e7f1ff;
 }
 
 // body.theme-dark {}
+
+body.var1 {
+  --color-build-variant: #0d6efd;
+}
+body.var2 {
+  --color-build-variant: #ff3e6c;
+}
+body.var3 {
+  --color-build-variant: #ff8c52;
+}
+body.var4 {
+  --color-build-variant: #198754;
+}
+body.var5 {
+  --color-build-variant: #343f48;
+}
+
+// --color-primary: #fff;
+// --color-secondary: #161428;
+// --color-grayscale-01: #000;
+// --color-grayscale-02: #343F48;
+// --color-grayscale-03: #EDEDED;
+// --color-grayscale-04: #F5F5F5;
+// --color-accent-01: #c6dadd;
+// --color-accent-02: #63f1ca;
+// --color-accent-03: #FED45C;
+// --color-accent-04: #FF8C52;
+// --color-accent-05: #FF3E6C;
+// --color-accent-06: #6E55FF;
+// --color-hover: #5906EE;
+// --color-focus: blue;
+// --color-error: #ff0000;
+// --color-success: #099205;
+// --color-shadow: #333;

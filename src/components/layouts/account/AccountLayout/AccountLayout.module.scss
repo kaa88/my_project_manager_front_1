@@ -1,7 +1,6 @@
 @import "/src/styles/variables.scss";
 
-.layout {
-  --sidebar-btn-width: 25px;
+._ {
   --content-width: 1560px;
   --padding-horizontal: 24px;
   --padding-vertical: 30px;
@@ -12,11 +11,23 @@
   grid-template-rows: min-content;
   overflow: hidden;
   background-color: var(--color-background);
-  @media (max-width: $media-tablet) {
-    --sidebar-btn-width: 0px; // нужно указать, т.к. от этой величины считается padding-left для контента
-  }
   @media (max-width: $media-mobile) {
     --padding-horizontal: 16px;
+  }
+}
+.header {
+  grid-row: 1;
+  grid-column: span 2;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 101;
+  background-color: var(--color-secondary);
+  border-bottom: solid 1px var(--color-borders);
+  @media (max-width: $media-tablet) {
+    background-color: var(--color-white);
+    border-color: transparent;
   }
 }
 .sidebar {
@@ -24,6 +35,7 @@
   grid-column: 1;
   position: relative;
   z-index: 201;
+  background-color: lime;
 }
 .main {
   grid-row: 2;
@@ -35,25 +47,10 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
-.header,
 .footer,
 .content {
-  padding-left: calc(var(--sidebar-btn-width) + var(--padding-horizontal));
+  padding-left: var(--padding-horizontal);
   padding-right: var(--padding-horizontal);
-}
-.header {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 101;
-  background-color: var(--color-background);
-  border-bottom: solid 1px var(--color-borders);
-  @media (max-width: $media-tablet) {
-    background-color: var(--color-white);
-    border-color: transparent;
-    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
-  }
 }
 .content {
   flex-grow: 1;
@@ -62,8 +59,7 @@
   position: relative;
   margin: 0 auto;
   max-width: calc(
-    var(--sidebar-btn-width) + var(--padding-horizontal) + var(--content-width) +
-      var(--padding-horizontal)
+    var(--padding-horizontal) + var(--content-width) + var(--padding-horizontal)
   );
   height: 100%;
   .content & {
@@ -72,11 +68,11 @@
   }
 }
 
-.technicalAlert {
-  grid-column: span 2;
-  position: relative;
-  z-index: 299;
-  @media (max-width: ($media-tablet)) {
-    z-index: 9;
-  }
-}
+// .technicalAlert {
+//   grid-column: span 2;
+//   position: relative;
+//   z-index: 299;
+//   @media (max-width: ($media-tablet)) {
+//     z-index: 9;
+//   }
+// }

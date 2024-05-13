@@ -13,18 +13,18 @@ import styles from "./AuthLayout.module.scss";
 // import { useAppSelector } from "store/hooks";
 // import { pages } from "utils/const";
 
-const IS_TECHNICAL_ALERT = process.env.REACT_APP_IS_TECHNICAL_WORK === "true";
+// const IS_TECHNICAL_ALERT = process.env.REACT_APP_IS_TECHNICAL_WORK === "true";
 
 interface AuthLayoutProps extends ComponentPropsWithoutRef<"div"> {
   variant?: "default" | "error";
-  skipAuth?: boolean;
+  // skipAuth?: boolean;
 }
 
 export const AuthLayout = ({
   variant = "default",
   children,
-  skipAuth,
-}: AuthLayoutProps): JSX.Element => {
+}: // skipAuth,
+AuthLayoutProps): JSX.Element => {
   // const navigate = useNavigate();
   // const authStatuses = useAppSelector((state) => state.authStatus);
   // const auth = useAppSelector((state) => state.auth);
@@ -47,38 +47,12 @@ export const AuthLayout = ({
 
   return (
     <div className={styles._}>
-      AuthLayout
-      {children || <Outlet />}
-      {/* {IS_TECHNICAL_ALERT && (
-        <TechnicalWorkAlert className={styles.technicalAlert} />
-      )}
-
-      <header className={`${styles.header} boxshadow`}>
-        <div className={styles.container}>
-          <Header />
-        </div>
-      </header>
-      <main className={styles.main}>
-        {variant === "error" ? (
-          <div className={styles.errorContainer}>{children || <Outlet />}</div>
-        ) : (
-          <div className={styles.container}>
-            {isConnectPending ? (
-              <Spinner />
-            ) : (
-              <div className={`${styles.box} boxshadow`}>
-                <div className={styles.innerBox}>{children || <Outlet />}</div>
-              </div>
-            )}
-          </div>
-        )}
-      </main>
-      <footer className={`${styles.footer} boxshadow`}>
-        <div className={styles.container}>
-          <Footer />
-        </div>
-      </footer>
-      <ErrorCatcher /> */}
+      <div className={styles.info}>
+        <p>my_project_manager</p>
+      </div>
+      <div className={styles.content}>
+        <div className={styles.container}>{children || <Outlet />}</div>
+      </div>
     </div>
   );
 };

@@ -13,6 +13,7 @@ import { ErrorPage } from "../../components/pages/ErrorPage/ErrorPage";
 import { LoginPage } from "../../components/pages/LoginPage/LoginPage";
 import { RegisterPage } from "../../components/pages/RegisterPage/RegisterPage";
 import { ProfilePage } from "../../components/pages/ProfilePage/ProfilePage";
+import { HelloPage } from "../../components/pages/HelloPage/HelloPage";
 
 const router = createBrowserRouter(
   [
@@ -36,6 +37,10 @@ const router = createBrowserRouter(
             </AuthRedirect>
           ),
           children: [
+            {
+              path: PAGES.ROOT,
+              element: <HelloPage />,
+            },
             {
               path: PAGES.LOGIN,
               element: <LoginPage />,

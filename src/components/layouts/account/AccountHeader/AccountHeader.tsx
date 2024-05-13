@@ -5,6 +5,7 @@ import styles from "./AccountHeader.module.scss";
 export const AccountHeader = (): JSX.Element => {
   return (
     <div className={styles.container}>
+      header
       {/* <Logo className={styles.logo} /> */}
     </div>
   );

@@ -4,23 +4,8 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 import styles from "./AccountLayout.module.scss";
 
-// import { AccountHeader } from "components/AccountHeader";
-// import { ErrorCatcher } from "components/ErrorCatcher";
-// import Sidebar from "components/Sidebar/Sidebar";
-// import { TechnicalWorkAlert } from "components/TechnicalWorkAlert";
-// import {
-//   fetchRefresh,
-//   setLogOutPath,
-//   setRefreshLogOut,
-// } from "features/auth/authSlice";
-// import { fetchProviders } from "features/provider/providerSlice";
-// import { useAppDispatch, useAppSelector } from "store/hooks";
-// import { pages } from "utils/const";
-
-const IS_TECHNICAL_ALERT = process.env.REACT_APP_IS_TECHNICAL_WORK === "true";
-const ACCESS_TOKEN_ERROR = 401;
-
-// const forbiddenPath = [pages.error, pages.connectedHh, pages.connectedSj];
+import AccountSidebar from "../AccountSidebar/AccountSidebar";
+import { AccountHeader } from "../AccountHeader/AccountHeader";
 
 export const AccountLayout = ({
   children,
@@ -35,18 +20,6 @@ export const AccountLayout = ({
   //   (state) => state.authStatus.fetchRefresh.statusCode
   // );
 
-  // Fetch Providers
-  // useLayoutEffect(() => {
-  //   if (
-  //     isLogin &&
-  //     !new RegExp(pages.connectedHh).test(location.pathname) &&
-  //     !new RegExp(pages.connectedSj).test(location.pathname)
-  //   ) {
-  //     dispatch(fetchProviders());
-  //   }
-  // }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  // /Fetch Providers
-
   // Scroll main content to top on route change
   const scrollableRef = useRef<HTMLDivElement>(null);
 
@@ -60,27 +33,22 @@ export const AccountLayout = ({
   // /Scroll main content to top on route change
 
   return (
-    <div className={styles.layout}>
-      AccountLayout
-      {children || <Outlet />}
-      {/* {IS_TECHNICAL_ALERT && (
-        <TechnicalWorkAlert className={styles.technicalAlert} />
-      )}
+    <div className={styles._}>
+      <header className={styles.header}>
+        <div className={styles.container}>
+          <AccountHeader />
+        </div>
+      </header>
 
       <aside className={styles.sidebar}>
-        <Sidebar />
+        <AccountSidebar />
       </aside>
+
       <main className={styles.main} ref={scrollableRef}>
-        <header className={styles.header}>
-          <div className={styles.container}>
-            <AccountHeader />
-          </div>
-        </header>
         <main className={styles.content}>
           <div className={styles.container}>{children || <Outlet />}</div>
         </main>
       </main>
-      <ErrorCatcher /> */}
     </div>
   );
 };

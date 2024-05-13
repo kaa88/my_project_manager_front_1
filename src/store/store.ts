@@ -1,6 +1,8 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import uiReducer from "./ui/uiSlice";
 
 const rootReducer = combineReducers({
+  ui: uiReducer,
   // auth: authReducer,
 });
 
