@@ -23,7 +23,7 @@
   left: 0;
   width: 100%;
   z-index: 101;
-  background-color: var(--color-secondary);
+  background-color: var(--color-build-variant);
   border-bottom: solid 1px var(--color-borders);
   @media (max-width: $media-tablet) {
     background-color: var(--color-white);

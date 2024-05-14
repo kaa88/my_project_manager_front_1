@@ -1,7 +1,28 @@
 @forward "mixins";
 @forward "functions";
 @forward "breakpoints";
-@forward "transitions";
-@forward "z-index";
-@forward "sizes";
-@forward "gradients";
+
+// transitions
+$timer-hover: 0.15s;
+$timer-sidebar: 0.2s;
+$timer-menu: 0.2s;
+$timer-popup: 0.2s;
+
+// z-index layers
+$z-index-header: 100;
+$z-index-popup: 200;
+$z-index-sidebar: 300;
+$z-index-menu: 400;
+$z-index-modal: 500;
+
+// sizes
+$container-desktop-width: 1240;
+$container-mobile-width: 480;
+$container-padding: 10;
+// $container-width: $container-padding * 2 + $container-base-width;
+// $mobile-content-max-width: $media-m + $media-offset + px;
+
+// border radius
+$border-radius: 10px;
+
+// gradients
