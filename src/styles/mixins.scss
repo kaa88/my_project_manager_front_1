@@ -9,3 +9,21 @@
   -webkit-line-clamp: $lines;
   overflow: hidden;
 }
+@mixin custom-scrollbar($thumb: var(--color-midgray), $track: transparent) {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $track;
+    border-radius: 5px;
+    margin: 5px 0;
+  }
+  @-moz-document url-prefix() {
+    scrollbar-width: thin; // = 8px
+    scrollbar-color: $thumb $track; // thumb track
+  }
+}

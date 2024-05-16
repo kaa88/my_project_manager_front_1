@@ -2,7 +2,7 @@
 
 
 # Задачи фронт
-- верстка AuthLayout
++ верстка AuthLayout
 - верстка AccountLayout + sidebar
 - сделать базовый ui-kit (button, input, spinner, checkbox/switch)
 - верстка форм login register

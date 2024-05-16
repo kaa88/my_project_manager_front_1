@@ -3,15 +3,30 @@
 html {
   font-size: 16px;
 }
+
+body {
+  --container-width: 1240px;
+  --container-padding: 15px;
+  @media (max-width: ($media-mobile+px)) {
+    --container-width: 480px;
+    --container-padding: 10px;
+  }
+}
+
 body {
   min-width: calc(315px - (100vw - 100%));
-  max-width: $media-d + $media-offset + 10px;
+  overflow-x: hidden;
   background-color: var(--color-background);
   font-family: var(--font-main);
   font-size: inherit;
   line-height: 1.2;
   color: var(--color-text);
   fill: var(--color-text);
+}
+
+#root {
+  margin: 0 auto;
+  max-width: $media-d + $media-offset + 10px;
 }
 
 h1,
