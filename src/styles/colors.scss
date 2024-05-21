@@ -1,3 +1,5 @@
+// body.theme-dark {}
+
 body {
   --color-white: #fff;
   --color-black: #212529;
@@ -21,26 +23,24 @@ body {
   --color-menu-hover: #e7f1ff;
 }
 
-// body.theme-dark {}
-
-body.var1 {
-  --color-build-variant: #0d6efd;
-}
-body.var2 {
-  --color-build-variant: #ff3e6c;
-}
-body.var3 {
-  --color-build-variant: #ff8c52;
+body.var5 {
+  --color-build-variant: #343f48;
 }
 body.var4 {
   --color-build-variant: #198754;
 }
-body.var5 {
-  --color-build-variant: #343f48;
+body.var3 {
+  --color-build-variant: #ff8c52;
+}
+body.var2 {
+  --color-build-variant: #ff3e6c;
+}
+body.var1 {
+  --color-build-variant: #0d6efd;
 }
 
-// --color-primary: #fff;
-// --color-secondary: #161428;
+// --color-prim: #fff;
+// --color-second: #161428;
 // --color-grayscale-01: #000;
 // --color-grayscale-02: #343F48;
 // --color-grayscale-03: #EDEDED;
@@ -51,8 +51,9 @@ body.var5 {
 // --color-accent-04: #FF8C52;
 // --color-accent-05: #FF3E6C;
 // --color-accent-06: #6E55FF;
-// --color-hover: #5906EE;
-// --color-focus: blue;
-// --color-error: #ff0000;
-// --color-success: #099205;
-// --color-shadow: #333;
+// --color-hover2: #5906EE;
+// --color-focus2: blue;
+// --color-error2: #ff0000;
+// --color-success2: #099205;
+// --color-shadow2: #333;
+// другие названия чтобы не тупил colorize

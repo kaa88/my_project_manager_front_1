@@ -1,0 +1,68 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-index-modal;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $timer-modal, visibility $timer-modal;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+}
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 20;
+  width: rem(30);
+  height: rem(30);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  user-select: none;
+  cursor: pointer;
+  svg {
+    width: 70%;
+    height: 70%;
+  }
+  &:focus {
+    background-color: yellow;
+  }
+}
+.wrapper {
+  position: relative;
+  z-index: 3;
+  width: 100vw;
+  max-width: 500px;
+  min-height: rem(100);
+  overflow: hidden;
+  padding: 30px;
+  background-color: white;
+}
+.content {
+  width: 100%;
+  max-height: calc(96vh - 60px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}

@@ -12,7 +12,8 @@ export const HelloPage = ({
   return (
     <div className={cn([className, styles._])} {...props}>
       <p>HelloPage</p>
-      {/* <p>
+      <br />
+      <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti veniam
         dolores minima molestias assumenda corrupti aspernatur odio
         exercitationem? Autem quidem quam, voluptas reprehenderit nihil minus
@@ -67,7 +68,7 @@ export const HelloPage = ({
         doloremque qui expedita maiores fugiat amet, nesciunt architecto
         commodi, et esse magnam sint maxime autem! Debitis veritatis ipsa
         architecto veniam!
-      </p> */}
+      </p>
     </div>
   );
 };

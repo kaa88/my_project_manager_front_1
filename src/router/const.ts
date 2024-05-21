@@ -16,6 +16,12 @@ export const PAGES = {
   // account:
   CHANGE_PASSWORD: "/change-password",
   PROFILE: "/profile",
+  KANBAN: "/kanban",
+  TASK_LIST: "/task_list",
+  TASK: "/task",
+  TUTORIAL: "/tutorial",
+  WIKI: "/wiki",
+  CALENDAR: "/calendar",
 };
 
 export const PAGE_NAMES: typeof PAGES = {
@@ -29,4 +35,10 @@ export const PAGE_NAMES: typeof PAGES = {
   // account:
   CHANGE_PASSWORD: "Смена пароля",
   PROFILE: "Мой профиль",
+  KANBAN: "/kanban",
+  TASK_LIST: "/task_list",
+  TASK: "/task",
+  TUTORIAL: "/tutorial",
+  WIKI: "/wiki",
+  CALENDAR: "/calendar",
 };

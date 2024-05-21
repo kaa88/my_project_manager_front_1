@@ -14,6 +14,12 @@ import { LoginPage } from "../../components/pages/LoginPage/LoginPage";
 import { RegisterPage } from "../../components/pages/RegisterPage/RegisterPage";
 import { ProfilePage } from "../../components/pages/ProfilePage/ProfilePage";
 import { HelloPage } from "../../components/pages/HelloPage/HelloPage";
+import { KanbanPage } from "../../components/pages/KanbanPage/KanbanPage";
+import { TaskListPage } from "../../components/pages/TaskListPage/TaskListPage";
+import { TaskPage } from "../../components/pages/TaskPage/TaskPage";
+import { TutorialPage } from "../../components/pages/TutorialPage/TutorialPage";
+import { WikiPage } from "../../components/pages/WikiPage/WikiPage";
+import { CalendarPage } from "../../components/pages/CalendarPage/CalendarPage";
 
 const router = createBrowserRouter(
   [
@@ -62,6 +68,30 @@ const router = createBrowserRouter(
             {
               path: PAGES.PROFILE,
               element: <ProfilePage />,
+            },
+            {
+              path: PAGES.KANBAN,
+              element: <KanbanPage />,
+            },
+            {
+              path: PAGES.TASK_LIST,
+              element: <TaskListPage />,
+            },
+            {
+              path: PAGES.TASK,
+              element: <TaskPage />,
+            },
+            {
+              path: PAGES.TUTORIAL,
+              element: <TutorialPage />,
+            },
+            {
+              path: PAGES.WIKI,
+              element: <WikiPage />,
+            },
+            {
+              path: PAGES.CALENDAR,
+              element: <CalendarPage />,
             },
           ],
         },

@@ -1,7 +1,7 @@
 @import "/src/styles/variables.scss";
 
 ._ {
-  padding: 2px var(--container-padding);
+  padding: 2px var(--container-padding-horizontal);
   color: var(--color-midgray);
   p {
     text-align: center;

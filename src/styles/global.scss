@@ -6,11 +6,17 @@ html {
 
 body {
   --container-width: 1240px;
-  --container-padding: 15px;
+  // --container-padding: 15px;
+  --container-padding-horizontal: 18px;
+  --container-padding-vertical: 24px;
   @media (max-width: ($media-mobile+px)) {
     --container-width: 480px;
-    --container-padding: 10px;
+    // --container-padding: 10px;
+    --container-padding-horizontal: 10px;
+    --container-padding-vertical: 14px;
   }
+
+  --timer-modal: #{$timer-modal};
 }
 
 body {
@@ -24,10 +30,10 @@ body {
   fill: var(--color-text);
 }
 
-#root {
-  margin: 0 auto;
-  max-width: $media-d + $media-offset + 10px;
-}
+// #root {
+//   margin: 0 auto;
+//   max-width: $media-d + $media-offset + 10px;
+// }
 
 h1,
 h2,

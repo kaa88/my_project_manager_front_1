@@ -1,30 +1,34 @@
-// import AccountMenu from "../../components/AccountMenu/AccountMenu";
-// import Icon from "../../components/ui/Icon/Icon";
-import { setSidebarCollapsed } from "../../../../store/ui/uiSlice";
+import { ComponentPropsWithoutRef } from "react";
+import { CgChevronDoubleLeft as Icon } from "react-icons/cg";
+
+import { setSidebarCollapsed } from "../../../../store/ui/uiPersistSlice";
 import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 
+import cn from "classnames";
 import styles from "./AccountSidebar.module.scss";
 
-const AccountSidebar = (): JSX.Element => {
+import { AccountMenu } from "../AccountMenu/AccountMenu";
+
+export const AccountSidebar = ({
+  className,
+}: ComponentPropsWithoutRef<"div">): JSX.Element => {
   const dispatch = useAppDispatch();
-  const { isSidebarCollapsed } = useAppSelector((state) => state.ui);
+  const { isSidebarCollapsed } = useAppSelector((state) => state.uiPersist);
 
   const toggleSidebar = (): void => {
-    dispatch(setSidebarCollapsed(isSidebarCollapsed ? false : true));
+    dispatch(setSidebarCollapsed(!isSidebarCollapsed));
   };
 
   return (
     <div
-      className={`${styles.sidebar} ${
-        isSidebarCollapsed ? styles.collapsed : ""
-      }`}
+      className={cn(className, styles._, {
+        [styles.collapsed]: isSidebarCollapsed,
+      })}
     >
-      {/* <button className={styles.toggleButton} onClick={toggleSidebar}> */}
-      {/* <Icon className={styles.toggleButtonIcon} name="chevron" /> */}
-      {/* </button> */}
-      {/* <AccountMenu className={styles.menu} collapsed={isSidebarCollapsed} /> */}
+      <button className={styles.toggleButton} onClick={toggleSidebar}>
+        <Icon className={styles.icon} />
+      </button>
+      <AccountMenu />
     </div>
   );
 };
-
-export default AccountSidebar;

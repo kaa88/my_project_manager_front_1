@@ -29,7 +29,7 @@ export const AuthLayout = ({
   //     top: 0,
   //     behavior: "instant",
   //   });
-  // }, [location]);
+  // }, [location.pathname]);
   // /Scroll main content to top on route change
 
   // const isConnectPending =

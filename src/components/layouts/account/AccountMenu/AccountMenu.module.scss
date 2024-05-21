@@ -1,0 +1,64 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-lightgray);
+}
+.header {
+  padding: 10px;
+  white-space: nowrap;
+}
+.scrollContainer {
+  flex: 1 1 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  @media (hover: hover) {
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  transition: background-color $timer-hover, color $timer-hover;
+  &[aria-current] {
+    background-color: var(--color-background);
+    pointer-events: none;
+  }
+  @media (hover: hover) {
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+  svg {
+    flex: 0 0 auto;
+    margin-right: 8px;
+    font-size: 30px;
+  }
+  span {
+    font-size: 20px;
+    white-space: nowrap;
+    transition: opacity $timer-sidebar, visibility $timer-sidebar;
+    @media (min-width: ($media-mobile+1+px)) {
+      .collapsed & {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+}

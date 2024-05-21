@@ -4,8 +4,11 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 import styles from "./AccountLayout.module.scss";
 
-import AccountSidebar from "../AccountSidebar/AccountSidebar";
+import { AccountSidebar } from "../AccountSidebar/AccountSidebar";
 import { AccountHeader } from "../AccountHeader/AccountHeader";
+import { TechnicalWorkAlert } from "../../TechnicalWorkAlert/TechnicalWorkAlert";
+
+const IS_TECHNICAL_ALERT = process.env.REACT_APP_IS_TECHNICAL_WORK === "true";
 
 export const AccountLayout = ({
   children,
@@ -21,7 +24,7 @@ export const AccountLayout = ({
   // );
 
   // Scroll main content to top on route change
-  const scrollableRef = useRef<HTMLDivElement>(null);
+  // const scrollableRef = useRef<HTMLDivElement>(null);
 
   // useLayoutEffect(() => {
   //   if (scrollableRef.current)
@@ -29,25 +32,27 @@ export const AccountLayout = ({
   //       top: 0,
   //       behavior: "instant",
   //     });
-  // }, [location]);
+  // }, [location.pathname]);
   // /Scroll main content to top on route change
 
   return (
     <div className={styles._}>
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <AccountHeader />
-        </div>
-      </header>
+      {IS_TECHNICAL_ALERT && (
+        <TechnicalWorkAlert className={styles.techAlert} />
+      )}
 
-      <aside className={styles.sidebar}>
-        <AccountSidebar />
-      </aside>
+      {/* <header className={styles.header}> */}
+      <AccountHeader className={styles.header} />
+      {/* </header> */}
 
-      <main className={styles.main} ref={scrollableRef}>
-        <main className={styles.content}>
+      {/* <aside className={styles.sidebar}> */}
+      <AccountSidebar className={styles.sidebar} />
+      {/* </aside> */}
+
+      <main className={styles.main}>
+        <div className={styles.scrollContainer}>
           <div className={styles.container}>{children || <Outlet />}</div>
-        </main>
+        </div>
       </main>
     </div>
   );
