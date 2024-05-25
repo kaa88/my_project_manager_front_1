@@ -1,24 +1,34 @@
 @use "sass:math";
 
+@function trim-units($number) {
+  // Converts '10px' into '10'
+  @return math.div($number, ($number * 0 + 1));
+}
+
 @function resize-multiplier($size, $media, $multiplier: 1, $base: 100vw) {
-  @return calc(
-    $size * $multiplier / $media * $base + $size * (1 - $multiplier) * 1px
-  );
-  // example: width: resize-multiplier(300, $media-footer, 0.8);
+  // example: width: resize-multiplier(300, $media-mobile, 0.8);
   // size - размер элемента на границе отсчета
   // media - граница отсчета
   // multiplier - значения от 0 до 1 - понижающие (замедляют ресайз), от 1 и выше - повышающие (ускоряют), отрицательные значания - дают реверс
   // base - база расчета (vw, vh, vmax...)
+  $sz: trim-units($size);
+  $md: trim-units($media);
+  @return calc($sz * $multiplier / $md * $base + $sz * (1 - $multiplier) * 1px);
 }
-@function em($px, $context: 16) {
-  @return math.div($px, $context) * 1em;
+
+@function _em-handler($value, $context) {
   // context - пересчет относительно текущего эл-та. например, если нужно задать ширину текстового блока, но font-size блока установлен 30:
   // font-size: 30px;
   // width: em(720, 30); - получится ширина 720 по макету
+  @return math.div(trim-units($value), trim-units($context));
 }
-@function rem($px, $context: 16) {
-  @return math.div($px, $context) * 1rem;
+@function em($value, $context: 16) {
+  @return _em-handler($value, $context) * 1em;
 }
+@function rem($value, $context: 16) {
+  @return _em-handler($value, $context) * 1rem;
+}
+
 @function concat-aspect-ratio($one, $two) {
   @return #{$one + " / " + $two};
 }

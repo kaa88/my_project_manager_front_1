@@ -1,0 +1,117 @@
+@import "/src/styles/variables.scss";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  label {
+    @media (max-width: ($media-mobile)) {
+      font-size: 14px;
+    }
+  }
+  &.disabled {
+    label {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}
+
+.box {
+  flex: 0 0 auto;
+  position: relative;
+  user-select: none;
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+  .checkbox & {
+    width: 20px;
+    height: 20px;
+  }
+  .switch & {
+    width: 36px;
+    height: 20px;
+  }
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    .disabled & {
+      cursor: default;
+    }
+  }
+}
+
+.customCheckbox,
+.customSwitch {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-white);
+  border: solid 1px var(--color-borders);
+  transition: background-color $timer-hover, border-color $timer-hover;
+  .wrapper input:checked + & {
+    background-color: var(--color-primary);
+    border-color: transparent;
+    svg {
+      opacity: 1;
+    }
+    i {
+      left: 17px;
+      background-color: var(--color-white) !important;
+    }
+  }
+  .disabled & {
+    opacity: 0.5;
+  }
+  .wrapper.success:not(.disabled) & {
+    border-color: var(--color-success);
+  }
+  .wrapper.error:not(.disabled) & {
+    border-color: var(--color-danger);
+  }
+}
+.customCheckbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  svg {
+    margin-left: 1px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    fill: var(--color-white);
+    transition: opacity $timer-hover;
+  }
+  .wrapper input:focus-visible + & {
+    @include focus(var(--color-primary-focus));
+  }
+}
+.customSwitch {
+  position: relative;
+  border-radius: 32px;
+  i {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--color-borders);
+    transition: all $timer-hover;
+  }
+  .wrapper input:focus-visible + &,
+  .wrapper input:active + & {
+    i {
+      background-color: var(--color-primary);
+    }
+  }
+  .wrapper input:focus-visible + & {
+    @include focus(var(--color-primary-focus));
+  }
+}

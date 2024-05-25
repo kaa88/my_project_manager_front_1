@@ -1,18 +1,23 @@
 import { ComponentPropsWithoutRef, useLayoutEffect, useRef } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../../../../store/hooks";
 
 import styles from "./AccountLayout.module.scss";
 
 import { AccountSidebar } from "../AccountSidebar/AccountSidebar";
 import { AccountHeader } from "../AccountHeader/AccountHeader";
-import { TechnicalWorkAlert } from "../../../";
-
-const IS_TECHNICAL_ALERT = process.env.REACT_APP_IS_TECHNICAL_WORK === "true";
+import { Anchor } from "../../../../../ui-kit";
+import {
+  TechnicalWorkAlert,
+  useScroll,
+  IS_TECHNICAL_ALERT,
+  LAYOUT_TOP_ANCHOR,
+} from "../../../";
 
 export const AccountLayout = ({
   children,
 }: ComponentPropsWithoutRef<"div">): JSX.Element => {
-  // const location = useLocation();
+  const location = useLocation();
   // const navigate = useNavigate();
   // const dispatch = useAppDispatch();
 
@@ -23,15 +28,10 @@ export const AccountLayout = ({
   // );
 
   // Scroll main content to top on route change
-  // const scrollableRef = useRef<HTMLDivElement>(null);
-
-  // useLayoutEffect(() => {
-  //   if (scrollableRef.current)
-  //     scrollableRef.current.scrollTo({
-  //       top: 0,
-  //       behavior: "instant",
-  //     });
-  // }, [location.pathname]);
+  const scrollToTop = useScroll(LAYOUT_TOP_ANCHOR);
+  useLayoutEffect(() => {
+    scrollToTop();
+  }, [location.pathname]);
   // /Scroll main content to top on route change
 
   return (
@@ -50,7 +50,10 @@ export const AccountLayout = ({
 
       <main className={styles.main}>
         <div className={styles.scrollContainer}>
-          <div className={styles.container}>{children || <Outlet />}</div>
+          <div className={styles.container}>
+            <Anchor className={styles.anchor} name={LAYOUT_TOP_ANCHOR} />
+            {children || <Outlet />}
+          </div>
         </div>
       </main>
     </div>

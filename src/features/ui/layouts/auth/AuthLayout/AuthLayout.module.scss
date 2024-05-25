@@ -17,7 +17,7 @@
   flex: 1 1 100%;
   display: flex;
   overflow: hidden;
-  @media (min-width: ($media-desktop+1+px)) {
+  @media (min-width: ($media-desktop+1)) {
     &:before {
       content: "";
       position: absolute;
@@ -34,7 +34,7 @@
       );
     }
   }
-  @media (max-width: ($media-mobile+px)) {
+  @media (max-width: ($media-mobile)) {
     flex-direction: column;
   }
 }
@@ -62,7 +62,7 @@
     background-color: var(--color-build-variant);
     border-radius: 0 40% 0 0;
   }
-  @media (max-width: ($media-mobile+px)) {
+  @media (max-width: ($media-mobile)) {
     flex-basis: auto;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -75,7 +75,7 @@
   position: relative;
   flex: 1 1 60%;
   background-color: var(--color-build-variant);
-  @media (min-width: ($media-mobile+1+px)) {
+  @media (min-width: ($media-mobile+1)) {
     &:before {
       content: "";
       position: absolute;
@@ -88,7 +88,7 @@
       border-radius: 0 0 0 50%;
     }
   }
-  @media (max-width: ($media-mobile+px)) {
+  @media (max-width: ($media-mobile)) {
     flex-basis: auto;
     overflow: hidden;
     background-color: var(--color-background);

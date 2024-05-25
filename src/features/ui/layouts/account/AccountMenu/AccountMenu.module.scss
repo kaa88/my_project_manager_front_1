@@ -54,7 +54,7 @@
     font-size: 20px;
     white-space: nowrap;
     transition: opacity $timer-sidebar, visibility $timer-sidebar;
-    @media (min-width: ($media-mobile+1+px)) {
+    @media (min-width: ($media-mobile+1)) {
       .collapsed & {
         opacity: 0;
         visibility: hidden;

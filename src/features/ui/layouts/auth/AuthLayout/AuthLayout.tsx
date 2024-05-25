@@ -3,9 +3,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 import styles from "./AuthLayout.module.scss";
 
-import { TechnicalWorkAlert } from "../../../";
-
-const IS_TECHNICAL_ALERT = process.env.REACT_APP_IS_TECHNICAL_WORK === "true";
+import { TechnicalWorkAlert, IS_TECHNICAL_ALERT } from "../../../";
 
 interface AuthLayoutProps extends ComponentPropsWithoutRef<"div"> {
   variant?: "default" | "error";
@@ -20,20 +18,6 @@ export const AuthLayout = ({
   // const auth = useAppSelector((state) => state.auth);
   // const { isLogin } = auth.auth;
   // const { logOutPath } = auth;
-
-  // Scroll main content to top on route change
-  // const location = useLocation();
-
-  // useLayoutEffect(() => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: "instant",
-  //   });
-  // }, [location.pathname]);
-  // /Scroll main content to top on route change
-
-  // const isConnectPending =
-  //   authStatuses.fetchProviderLogin.status === STATUS_PENDING;
 
   return (
     <div className={styles._}>

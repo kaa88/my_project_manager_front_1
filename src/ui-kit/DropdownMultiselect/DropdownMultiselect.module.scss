@@ -1,0 +1,11 @@
+@import "/src/styles/variables.scss";
+
+.list {
+  padding: 8px 12px;
+}
+.checkbox {
+  font-size: 15px;
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}

@@ -3,6 +3,7 @@ import cn from "classnames";
 import styles from "./ProfilePage.module.scss";
 import { BurgerMenu } from "../../../ui-kit/BurgerMenu/BurgerMenu";
 import { Modal } from "../../../ui-kit/Modal/Modal";
+import { Button } from "../../../ui-kit";
 
 interface ProfilePageProps extends ComponentPropsWithoutRef<"div"> {}
 
@@ -211,6 +212,7 @@ export const ProfilePage = ({
         commodi, et esse magnam sint maxime autem! Debitis veritatis ipsa
         architecto veniam!
       </p>
+      <Button href="/">HELLO PAGE</Button>
     </div>
   );
 };

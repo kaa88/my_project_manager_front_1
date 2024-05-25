@@ -9,6 +9,10 @@ body {
 
   --color-primary: #ff735c;
   --color-primary-hover: #ffb4a8;
+  --color-primary-focus: #ffb4a877;
+  --color-secondary: #0d6efd;
+  --color-secondary-hover: #4f9dec;
+  --color-secondary-focus: #4f9dec77;
 
   --color-background: #f8f9fa;
   --color-text: #212529;
@@ -17,10 +21,6 @@ body {
 
   --color-danger: #dc3545;
   --color-success: #198754;
-
-  --color-link: #0d6efd;
-  --color-link-hover: #1a50df;
-  --color-menu-hover: #e7f1ff;
 }
 
 body.var5 {

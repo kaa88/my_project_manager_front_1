@@ -7,7 +7,7 @@ body {
     border-radius: $border-radius;
     background-color: transparent;
     transition: background-color $timer-hover;
-    &:focus {
+    &:focus-visible {
       background-color: var(--color-lightgray);
     }
   }

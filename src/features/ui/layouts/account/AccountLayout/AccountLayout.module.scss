@@ -34,7 +34,7 @@
   z-index: $z-index-sidebar;
   height: 100%;
   overflow: hidden;
-  @media (max-width: ($media-mobile+px)) {
+  @media (max-width: ($media-mobile)) {
     display: none;
   }
 }
@@ -50,6 +50,7 @@
 
 .scrollContainer {
   max-height: 100%;
+  overflow-x: hidden;
   overflow-y: auto;
   @include custom-scrollbar();
   margin: 0 $scrollbar-margin;
@@ -59,5 +60,11 @@
 
 .container {
   position: relative;
-  background-color: lightgray;
+  // background-color: lightgray;
+}
+
+.anchor {
+  position: absolute;
+  top: -500px;
+  left: 0;
 }

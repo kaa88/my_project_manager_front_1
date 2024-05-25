@@ -1,0 +1,62 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  height: 44px;
+  display: inline-flex;
+  border-radius: $border-radius;
+  border: solid 1px transparent;
+  background-color: var(--color-primary);
+  transition: background-color $timer-hover, color $timer-hover,
+    fill $timer-hover;
+
+  button {
+    flex: 1 0 25px;
+    min-width: 25px;
+    font-size: 16px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-white);
+    transition: inherit;
+    &.active {
+      background-color: var(--color-primary-hover);
+      pointer-events: none;
+    }
+    &:not(:last-child) {
+      margin-right: 1px;
+    }
+    &:focus-visible {
+      z-index: 2;
+      @include focus(var(--color-secondary-focus));
+    }
+    @media (hover: hover) {
+      &:hover:not(:disabled) {
+        background-color: var(--color-primary-hover);
+      }
+    }
+    svg {
+      width: 80%;
+      height: 80%;
+    }
+  }
+
+  &.disabled {
+    background-color: var(--color-borders);
+    button {
+      background-color: var(--color-lightgray);
+      color: var(--color-borders);
+    }
+  }
+}
+.prev {
+  border-radius: $border-radius 0 0 $border-radius;
+}
+.next {
+  border-radius: 0 $border-radius $border-radius 0;
+  svg {
+    transform: rotate(180deg);
+  }
+}
+.page {
+}

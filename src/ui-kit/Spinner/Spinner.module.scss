@@ -1,0 +1,58 @@
+@import "/src/styles/variables.scss";
+
+$timer-spinner: $timer-hover;
+
+._ {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity $timer-spinner, visibility $timer-spinner;
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    opacity: 0.5;
+  }
+}
+.wrapper {
+  position: relative;
+  color: var(--color-darkgray);
+  width: 34px;
+  height: 34px;
+  .small & {
+    width: 18px;
+    height: 18px;
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+    animation: spinner 1s linear infinite;
+    &:not(:first-child) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation-duration: 2s;
+    }
+  }
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

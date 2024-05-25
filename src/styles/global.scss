@@ -9,7 +9,7 @@ body {
   // --container-padding: 15px;
   --container-padding-horizontal: 18px;
   --container-padding-vertical: 24px;
-  @media (max-width: ($media-mobile+px)) {
+  @media (max-width: ($media-mobile)) {
     --container-width: 480px;
     // --container-padding: 10px;
     --container-padding-horizontal: 10px;
@@ -46,19 +46,19 @@ h4 {
 }
 h1 {
   font-size: 40px;
-  @media (max-width: ($media-mobile+px)) {
+  @media (max-width: ($media-mobile)) {
     font-size: 28px;
   }
 }
 h2 {
   font-size: 32px;
-  @media (max-width: ($media-mobile+px)) {
+  @media (max-width: ($media-mobile)) {
     font-size: 24px;
   }
 }
 h3 {
   font-size: 28px;
-  @media (max-width: ($media-mobile+px)) {
+  @media (max-width: ($media-mobile)) {
     font-size: 20px;
   }
 }

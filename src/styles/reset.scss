@@ -40,7 +40,9 @@ textarea,
 button,
 input[type="submit"],
 input[type="reset"] {
-  cursor: pointer;
+  &:not(:disabled) {
+    cursor: pointer;
+  }
 }
 input::-ms-clear {
   // remove default cross
