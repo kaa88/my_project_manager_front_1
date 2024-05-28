@@ -1,0 +1,70 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: min-content min-content;
+  overflow: hidden;
+}
+.techAlert {
+  grid-row: 1;
+  grid-column: span 2;
+  position: relative;
+  z-index: $z-index-header + 10;
+  width: 100%;
+  background-color: var(--color-background);
+  box-shadow: 0 0 0 1px var(--color-borders);
+}
+
+.header {
+  grid-row: 2;
+  grid-column: span 2;
+  position: relative;
+  z-index: $z-index-header;
+  padding: 0 var(--container-padding-horizontal);
+  background-color: var(--color-build-variant);
+}
+
+.sidebar {
+  grid-row: 3;
+  grid-column: 1;
+  position: relative;
+  z-index: $z-index-sidebar;
+  height: 100%;
+  overflow: hidden;
+  @media (max-width: ($media-mobile)) {
+    display: none;
+  }
+}
+
+.main {
+  grid-row: 3;
+  grid-column: 2;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-background);
+}
+
+.scrollContainer {
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  @include custom-scrollbar();
+  margin: 0 $scrollbar-margin;
+  padding: var(--container-padding-vertical)
+    calc(var(--container-padding-horizontal) - $scrollbar-margin);
+}
+
+.container {
+  position: relative;
+  // background-color: lightgray;
+}
+
+.anchor {
+  position: absolute;
+  top: -500px;
+  left: 0;
+}

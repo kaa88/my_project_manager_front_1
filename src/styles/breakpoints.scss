@@ -1,22 +1,22 @@
-$media-offset: 3;
+$media-offset: 3px;
 
 // desktop
-$media-dxl: 3840 - $media-offset;
-$media-dl: 2560 - $media-offset;
-$media-d: 1920 - $media-offset;
-$media-ds: 1600 - $media-offset;
-$media-dxs: 1366 - $media-offset;
+$media-dxl: 3840px - $media-offset;
+$media-dl: 2560px - $media-offset;
+$media-d: 1920px - $media-offset;
+$media-ds: 1600px - $media-offset;
+$media-dxs: 1366px - $media-offset;
 
 // tablet
-$media-tl: 1280 - $media-offset;
-$media-t: 1024 - $media-offset;
-$media-ts: 960 - $media-offset;
+$media-tl: 1280px - $media-offset;
+$media-t: 1024px - $media-offset;
+$media-ts: 960px - $media-offset;
 
 // mobile
-$media-mxl: 782 - $media-offset;
-$media-ml: 600 - $media-offset;
-$media-m: 480 - $media-offset;
-$media-ms: 360 - $media-offset;
+$media-mxl: 782px - $media-offset;
+$media-ml: 600px - $media-offset;
+$media-m: 480px - $media-offset;
+$media-ms: 360px - $media-offset;
 
 // simple
 $media-desktop: $media-d;
@@ -24,4 +24,4 @@ $media-tablet: $media-tl;
 $media-mobile: $media-mxl;
 
 // height breakpoints
-$media-h: 1024 - $media-offset;
+$media-h: 1024px - $media-offset;

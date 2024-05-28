@@ -27,3 +27,6 @@
     scrollbar-color: $thumb $track; // thumb track
   }
 }
+@mixin focus($color) {
+  box-shadow: 0 0 0 5px $color;
+}

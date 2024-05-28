@@ -1,0 +1,155 @@
+@import "/src/styles/variables.scss";
+
+$small-size-breakpoint: $media-mobile;
+
+body ._ {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  & > i {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > * {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  & > span {
+    @include text-max-lines(2);
+  }
+  & > * {
+    transition: opacity $timer-hover;
+  }
+
+  // Sizes
+  // default
+  font-size: 16px;
+  height: em(44);
+  line-height: 1.2;
+  padding: 0 em(6);
+  border-radius: em($border-radius);
+  @media (max-width: ($small-size-breakpoint)) {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+  & > i {
+    width: em(32);
+    height: em(32);
+  }
+  & > span {
+    margin: 0 em(6);
+  }
+
+  &.small {
+    font-size: 12px;
+    @media (max-width: ($small-size-breakpoint)) {
+      font-size: 10px;
+      & > span {
+        font-size: 11px;
+      }
+    }
+  }
+  &.large {
+    font-size: 20px;
+    @media (max-width: ($small-size-breakpoint)) {
+      font-size: 16px;
+    }
+  }
+
+  // Colors
+  // default
+  --btn-color: var(--color-text);
+  --btn-color-hover: var(--color-text);
+  --btn-color-disabled: var(--color-text);
+
+  --btn-bg: transparent;
+  --btn-bg-hover: transparent;
+  --btn-bg-disabled: transparent;
+
+  --btn-border-color: transparent;
+  --btn-border-color-hover: transparent;
+  --btn-border-color-disabled: transparent;
+
+  --btn-focus: transparent;
+
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  fill: var(--btn-color);
+  border: solid em(1) var(--btn-border-color);
+  transition: background-color $timer-hover, color $timer-hover,
+    border-color $timer-hover;
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--btn-bg-hover);
+      color: var(--btn-color-hover);
+      fill: var(--btn-color-hover);
+      border-color: var(--btn-border-color-hover);
+    }
+  }
+  &:active,
+  &.active {
+    background-color: var(--btn-bg-hover);
+    color: var(--btn-color-hover);
+    fill: var(--btn-color-hover);
+    border-color: var(--btn-border-color-hover);
+  }
+  &:focus-visible {
+    @include focus(var(--btn-focus));
+  }
+  &:disabled {
+    background-color: var(--btn-bg-disabled);
+    color: var(--btn-color-disabled);
+    fill: var(--btn-color-disabled);
+    border-color: var(--btn-border-color-disabled);
+    pointer-events: none;
+    opacity: 1;
+    & > * {
+      opacity: 0.5;
+    }
+  }
+
+  &.primary {
+    --btn-bg: var(--color-primary);
+    --btn-bg-hover: var(--color-primary-hover);
+    --btn-bg-disabled: var(--color-lightgray);
+
+    --btn-focus: var(--color-primary-focus);
+  }
+  &.secondary {
+    --btn-bg: var(--color-secondary);
+    --btn-bg-hover: var(--color-secondary-hover);
+    --btn-bg-disabled: var(--color-lightgray);
+
+    --btn-border-color: var(--color-borders);
+    --btn-border-color-hover: var(--color-borders);
+    --btn-border-color-disabled: var(--color-borders);
+
+    --btn-focus: var(--color-secondary-focus);
+  }
+  &.link {
+    --btn-color: var(--color-secondary);
+    --btn-color-hover: var(--color-secondary-hover);
+
+    --btn-focus: var(--color-secondary-focus);
+  }
+
+  &.link {
+    padding: 0;
+    height: auto;
+    line-height: 1.2 !important;
+    border: none;
+    border-radius: 0;
+    & > i {
+      display: none;
+    }
+    & > span {
+      margin: 0;
+      display: inline-block;
+      text-decoration: underline;
+      text-align: left;
+    }
+  }
+}

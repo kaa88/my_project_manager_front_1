@@ -3,17 +3,19 @@ import { fixPath } from "../../utils/utils";
 
 import { PAGE_NAMES, PAGES } from "../const";
 import { PageTitle } from "../PageTitle/PageTitle";
-import AuthRedirect from "../AuthRedirect/AuthRedirect";
-import NoAuthRedirect from "../NoAuthRedirect/NoAuthRedirect";
 
-import { AuthLayout } from "../../components/layouts/auth/AuthLayout/AuthLayout";
-import { AccountLayout } from "../../components/layouts/account/AccountLayout/AccountLayout";
-
-import { ErrorPage } from "../../components/pages/ErrorPage/ErrorPage";
-import { LoginPage } from "../../components/pages/LoginPage/LoginPage";
-import { RegisterPage } from "../../components/pages/RegisterPage/RegisterPage";
-import { ProfilePage } from "../../components/pages/ProfilePage/ProfilePage";
-import { HelloPage } from "../../components/pages/HelloPage/HelloPage";
+import { AccountLayout, AuthLayout, ErrorPage } from "../../features/ui";
+import {
+  AuthRedirect,
+  LoginPage,
+  NoAuthRedirect,
+  RegisterPage,
+} from "../../features/auth";
+import { ProfilePage } from "../../features/profile";
+import { TaskListPage, TaskPage } from "../../features/task";
+import { KanbanPage } from "../../features/kanban";
+import { CalendarPage } from "../../features/calendar";
+import { HelloPage, TutorialPage, WikiPage } from "../../features/info";
 
 const router = createBrowserRouter(
   [
@@ -62,6 +64,30 @@ const router = createBrowserRouter(
             {
               path: PAGES.PROFILE,
               element: <ProfilePage />,
+            },
+            {
+              path: PAGES.KANBAN,
+              element: <KanbanPage />,
+            },
+            {
+              path: PAGES.TASK_LIST,
+              element: <TaskListPage />,
+            },
+            {
+              path: PAGES.TASK,
+              element: <TaskPage />,
+            },
+            {
+              path: PAGES.TUTORIAL,
+              element: <TutorialPage />,
+            },
+            {
+              path: PAGES.WIKI,
+              element: <WikiPage />,
+            },
+            {
+              path: PAGES.CALENDAR,
+              element: <CalendarPage />,
             },
           ],
         },

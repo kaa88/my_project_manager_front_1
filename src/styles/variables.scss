@@ -6,12 +6,14 @@
 $timer-hover: 0.15s;
 $timer-sidebar: 0.2s;
 $timer-menu: 0.2s;
+$timer-modal: 0.2s;
 $timer-popup: 0.2s;
+$timer-dropdown: $timer-popup;
 
 // z-index layers
-$z-index-header: 100;
-$z-index-popup: 200;
-$z-index-sidebar: 300;
+$z-index-popup: 100;
+$z-index-sidebar: 200;
+$z-index-header: 300;
 $z-index-menu: 400;
 $z-index-modal: 500;
 
@@ -26,3 +28,6 @@ $z-index-modal: 500;
 $border-radius: 10px;
 
 // gradients
+
+// other
+$scrollbar-margin: 2px;
