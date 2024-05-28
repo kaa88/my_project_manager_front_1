@@ -3,9 +3,7 @@ import cn from "classnames";
 
 import styles from "./InputPassword.module.scss";
 
-import { CgEye as IconShow } from "react-icons/cg";
-import { CgEyeAlt as IconHide } from "react-icons/cg";
-import { InputText, InputTextProps } from "../";
+import { InputText, InputTextProps, Icon } from "../";
 
 interface InputPasswordProps extends InputTextProps {
   type?: "password";
@@ -33,7 +31,10 @@ export const InputPassword = forwardRef<HTMLInputElement, InputPasswordProps>(
           disabled={disabled}
           tabIndex={-1}
         >
-          {isVisible && !disabled ? <IconHide /> : <IconShow />}
+          <Icon
+            className={styles.icon}
+            name={isVisible && !disabled ? "eye_closed" : "eye"}
+          />
         </button>
       </div>
     );

@@ -7,11 +7,13 @@ import {
   RefObject,
 } from "react";
 import { createPortal } from "react-dom";
-import { CgClose as DefaultIcon } from "react-icons/cg";
 import cn from "classnames";
+
 import styles from "./BasicModal.module.scss";
+
 import { getCssVariable } from "../../utils/utils";
 import { transitionIsLocked } from "../../utils/transitionLock";
+import { Icon } from "../";
 
 export interface BasicModalProps extends ComponentPropsWithoutRef<"div"> {
   active: boolean;
@@ -108,7 +110,9 @@ export const BasicModal = memo(
                 onClick={onClose}
                 type="button"
               >
-                {closeButtonIcon || <DefaultIcon />}
+                {closeButtonIcon || (
+                  <Icon className={styles.icon} name="cross" />
+                )}
               </button>
               <div
                 className={cn(contentClassName, styles.content)}

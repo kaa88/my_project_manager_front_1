@@ -35,7 +35,7 @@
         background-color: var(--color-primary-hover);
       }
     }
-    svg {
+    .icon {
       width: 80%;
       height: 80%;
     }
@@ -54,7 +54,7 @@
 }
 .next {
   border-radius: 0 $border-radius $border-radius 0;
-  svg {
+  .icon {
     transform: rotate(180deg);
   }
 }

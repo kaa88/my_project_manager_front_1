@@ -20,6 +20,7 @@ import {
   Pagination,
   DropdownItem,
   DropdownMultiselectItem,
+  IconList,
 } from "../../../ui-kit";
 
 import { CgMenuGridR as Icon } from "react-icons/cg";
@@ -180,6 +181,8 @@ export const WikiPage = ({
         scrollableRef={upBtnContentRef}
         scrollBehavior="smooth"
       ></UpButton>
+      <br />
+      <IconList />
     </div>
   );
 };

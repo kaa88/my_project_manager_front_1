@@ -3,8 +3,7 @@ import cn from "classnames";
 
 import styles from "./AccountHeader.module.scss";
 
-import { CgMenuGridR as MenuIcon } from "react-icons/cg";
-import { BurgerMenu, Logo } from "../../../../../ui-kit";
+import { BurgerMenu, Icon, Logo } from "../../../../../ui-kit";
 
 import { AccountMenu } from "../AccountMenu/AccountMenu";
 
@@ -24,7 +23,7 @@ export const AccountHeader = ({
   return (
     <header className={cn(className, styles._)}>
       <button className={styles.menuButton} type="button" onClick={openMenu}>
-        <MenuIcon />
+        <Icon name="menu" />
       </button>
       <BurgerMenu active={isMenuActive} onClose={closeMenu}>
         <AccountMenu onClick={closeMenu} />

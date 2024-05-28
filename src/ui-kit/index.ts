@@ -5,6 +5,8 @@ export * from "./Button/Button";
 export * from "./Checkbox/Checkbox";
 export * from "./Dropdown/Dropdown";
 export * from "./DropdownMultiselect/DropdownMultiselect";
+export * from "./Icon/Icon";
+export * from "./Icon/IconList";
 export * from "./InputNumber/InputNumber";
 export * from "./InputPassword/InputPassword";
 export * from "./InputText/InputText";

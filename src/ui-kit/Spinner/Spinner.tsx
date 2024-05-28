@@ -3,7 +3,7 @@ import cn from "classnames";
 
 import styles from "./Spinner.module.scss";
 
-import { CgSpinner as Icon, CgSpinnerAlt as IconAlt } from "react-icons/cg";
+import { Icon } from "../";
 
 interface SpinnerProps extends ComponentPropsWithoutRef<"div"> {
   size?: "small" | undefined;
@@ -23,8 +23,8 @@ export const Spinner = memo(
         {...props}
       >
         <div className={styles.wrapper}>
-          <Icon />
-          <IconAlt />
+          <Icon className={styles.icon} name="spinner" />
+          <Icon className={styles.icon} name="spinner2" />
         </div>
       </div>
     );

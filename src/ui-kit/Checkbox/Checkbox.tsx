@@ -3,7 +3,7 @@ import cn from "classnames";
 
 import styles from "./Checkbox.module.scss";
 
-import { CgCheck as Icon } from "react-icons/cg";
+import { Icon } from "../";
 
 interface CheckboxProps extends ComponentPropsWithoutRef<"input"> {
   variant?: "checkbox" | "switch";
@@ -47,11 +47,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           />
           {variant === "switch" ? (
             <div className={styles.customSwitch}>
-              <i></i>
+              <b></b>
             </div>
           ) : (
             <div className={styles.customCheckbox}>
-              <Icon />
+              <Icon className={styles.icon} name="check" />
             </div>
           )}
         </div>

@@ -2,11 +2,7 @@ import { ComponentPropsWithoutRef, memo } from "react";
 import cn from "classnames";
 
 import styles from "./Pagination.module.scss";
-
-import {
-  CgChevronLeft as IconArrow,
-  CgMoreAlt as IconMore,
-} from "react-icons/cg";
+import { Icon } from "../";
 
 interface PaginationProps extends ComponentPropsWithoutRef<"button"> {
   activePage: number;
@@ -73,13 +69,13 @@ export const Pagination = memo(
           onClick={() => onPageChange(activePage - 1)}
           disabled={activePage === 0 || loading || disabled}
         >
-          <IconArrow />
+          <Icon className={styles.icon} name="chevron" />
         </button>
 
         {pages.map((number, index) =>
           number === nullNumber ? (
             <button type="button" disabled key={"more" + index}>
-              <IconMore />
+              <Icon className={styles.icon} name="dots" />
             </button>
           ) : (
             <button
@@ -105,7 +101,7 @@ export const Pagination = memo(
           onClick={() => onPageChange(activePage + 1)}
           disabled={activePage === pageCount - 1 || loading || disabled}
         >
-          <IconArrow />
+          <Icon className={styles.icon} name="chevron" />
         </button>
       </div>
     );

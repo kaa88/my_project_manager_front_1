@@ -9,14 +9,15 @@
   border-radius: $border-radius;
   background-color: var(--color-background);
   opacity: 0.65;
-  svg {
-    width: 80%;
-    height: 80%;
-    color: var(--color-midgray);
-    fill: var(--color-midgray);
-  }
   @media (max-width: ($media-mobile)) {
     width: 35px;
     height: 35px;
   }
+}
+body .icon {
+  transform: rotate(90deg);
+  width: 80%;
+  height: 80%;
+  color: var(--color-midgray);
+  fill: var(--color-midgray);
 }

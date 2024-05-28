@@ -24,7 +24,7 @@ body .input {
   display: flex;
   flex-direction: column;
   & > * {
-    font-size: 16px;
+    font-size: 0;
     height: 50%;
     background-color: transparent;
     color: var(--color-midgray);
@@ -34,12 +34,12 @@ body .input {
     align-items: center;
     transition: background-color $timer-hover, border-color $timer-hover,
       color $timer-hover, fill $timer-hover;
-    svg {
+    .icon {
       width: 80%;
       height: 80%;
       transform: rotate(-90deg);
     }
-    border-width: em(1);
+    border-width: rem(1);
     border-color: var(--color-borders);
     &:first-child {
       transform: rotate(180deg);

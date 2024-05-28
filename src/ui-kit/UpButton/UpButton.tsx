@@ -9,8 +9,8 @@ import cn from "classnames";
 
 import styles from "./UpButton.module.scss";
 
-import { CgArrowUpR as Icon } from "react-icons/cg";
 import { LAYOUT_TOP_ANCHOR, useScroll } from "../../features/ui";
+import { Icon } from "../";
 
 interface UpButtonProps extends ComponentPropsWithoutRef<"button"> {
   autoHide?: boolean;
@@ -54,7 +54,7 @@ export const UpButton = memo(
         type="button"
         {...props}
       >
-        <Icon />
+        <Icon className={styles.icon} name="arrow_square" />
       </button>
     );
   }

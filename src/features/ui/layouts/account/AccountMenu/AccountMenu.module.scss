@@ -45,10 +45,11 @@
       color: var(--color-primary);
     }
   }
-  svg {
+  .icon {
     flex: 0 0 auto;
     margin-right: 8px;
-    font-size: 30px;
+    width: 30px;
+    height: 30px;
   }
   span {
     font-size: 20px;

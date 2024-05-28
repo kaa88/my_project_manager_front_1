@@ -3,8 +3,8 @@ import cn from "classnames";
 
 import styles from "./InputNumber.module.scss";
 
-import { CgChevronLeft as Icon } from "react-icons/cg";
 import { InputText, InputTextProps } from "../InputText/InputText";
+import { Icon } from "../";
 
 interface InputNumberProps extends Omit<InputTextProps, "onChange"> {
   value?: number;
@@ -42,7 +42,7 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
             tabIndex={-1}
             disabled={disabled}
           >
-            <Icon />
+            <Icon className={styles.icon} name="chevron" />
           </button>
           <button
             onClick={() => setValue(value - step)}
@@ -50,7 +50,7 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
             tabIndex={-1}
             disabled={disabled}
           >
-            <Icon />
+            <Icon className={styles.icon} name="chevron" />
           </button>
         </div>
         <InputText

@@ -6,9 +6,8 @@ import { useAppDispatch, useAppSelector } from "../../../../../store/hooks";
 
 import styles from "./AccountSidebar.module.scss";
 
-import { CgChevronDoubleLeft as Icon } from "react-icons/cg";
-
 import { AccountMenu } from "../AccountMenu/AccountMenu";
+import { Icon } from "../../../../../ui-kit";
 
 export const AccountSidebar = ({
   className,
@@ -27,7 +26,7 @@ export const AccountSidebar = ({
       })}
     >
       <button className={styles.toggleButton} onClick={toggleSidebar}>
-        <Icon className={styles.icon} />
+        <Icon className={styles.icon} name="chevron_double" />
       </button>
       <AccountMenu />
     </div>

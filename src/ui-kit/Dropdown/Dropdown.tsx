@@ -11,8 +11,7 @@ import { setActiveDropdown } from "../../features/ui";
 
 import styles from "./Dropdown.module.scss";
 
-import { CgChevronLeft as Icon } from "react-icons/cg";
-import { Button } from "../";
+import { Button, Icon } from "../";
 
 export interface DropdownItem {
   key: string;
@@ -80,7 +79,7 @@ export const Dropdown = memo(
           disabled={disabled}
         >
           <span>{title}</span>
-          <Icon />
+          <Icon className={styles.icon} name="chevron" />
         </Button>
         <div className={styles.drop}>
           {customList || (

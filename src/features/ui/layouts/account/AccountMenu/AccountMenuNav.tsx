@@ -7,19 +7,12 @@ import { PAGES } from "../../../../../router/const";
 
 import styles from "./AccountMenu.module.scss";
 
-import {
-  CgUser,
-  CgTrello,
-  CgMenuLeftAlt,
-  CgLoadbarDoc,
-  CgReadme,
-  CgCalendarDates,
-} from "react-icons/cg";
+import { Icon, icons } from "../../../../../ui-kit";
 
 interface NavItem {
   link: string;
   text: string;
-  icon?: JSX.Element;
+  icon?: keyof typeof icons;
   isDisabled?: boolean;
   isDeveloping?: boolean;
   isBlank?: boolean;
@@ -29,37 +22,37 @@ const navItems: NavItem[] = [
   {
     link: PAGES.PROFILE,
     text: "Profile",
-    icon: <CgUser />,
+    icon: "person",
   },
   {
     link: PAGES.KANBAN,
     text: "Kanban",
-    icon: <CgTrello />,
+    icon: "board",
   },
   {
     link: PAGES.TASK_LIST,
     text: "Task list",
-    icon: <CgMenuLeftAlt />,
+    icon: "list",
   },
   {
     link: PAGES.TASK,
     text: "Task",
-    icon: <CgLoadbarDoc />,
+    icon: "task",
   },
   {
     link: PAGES.TUTORIAL,
     text: "Tutorial",
-    icon: <CgReadme />,
+    icon: "book",
   },
   {
     link: PAGES.WIKI,
     text: "Wiki",
-    icon: <CgReadme />,
+    icon: "book",
   },
   {
     link: PAGES.CALENDAR,
     text: "Calendar",
-    icon: <CgCalendarDates />,
+    icon: "calendar",
   },
 ];
 
@@ -79,7 +72,7 @@ export const AccountMenuNav = memo(
             key={item.link}
             onClick={onClick}
           >
-            {item.icon}
+            {!!item.icon && <Icon className={styles.icon} name={item.icon} />}
             <span>{item.text}</span>
           </NavLink>
         ))}
