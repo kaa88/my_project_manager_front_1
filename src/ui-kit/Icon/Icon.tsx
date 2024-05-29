@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef, memo } from "react";
 import cn from "classnames";
 
 import styles from "./Icon.module.scss";
@@ -21,6 +21,7 @@ import {
   CgClose,
   CgCheck,
   CgMoreAlt,
+  CgInfo,
 } from "react-icons/cg";
 
 // all arrows left
@@ -43,6 +44,7 @@ export const icons = {
   list: <CgMenuLeftAlt />,
   book: <CgReadme />,
   dots: <CgMoreAlt />,
+  info: <CgInfo />,
 };
 
 interface IconProps extends ComponentPropsWithoutRef<"div"> {
@@ -50,10 +52,12 @@ interface IconProps extends ComponentPropsWithoutRef<"div"> {
   children?: undefined;
 }
 
-export const Icon = ({ className, name, ...props }: IconProps): JSX.Element => {
-  return (
-    <i className={cn(className, styles._)} {...props}>
-      {icons[name]}
-    </i>
-  );
-};
+export const Icon = memo(
+  ({ className, name, ...props }: IconProps): JSX.Element => {
+    return (
+      <i className={cn(className, styles._)} {...props}>
+        {icons[name]}
+      </i>
+    );
+  }
+);

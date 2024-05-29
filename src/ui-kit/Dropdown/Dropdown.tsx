@@ -42,8 +42,8 @@ export const Dropdown = memo(
   }: DropdownProps): JSX.Element => {
     const dispatch = useAppDispatch();
     const id = useId();
-    const { activeDropdown } = useAppSelector((state) => state.ui);
-    const isDropActive = activeDropdown === id;
+    const isDropActive =
+      useAppSelector((state) => state.ui.activeDropdown) === id;
 
     const open = (e: Evt) => {
       e.stopPropagation();

@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef, useId } from "react";
+import { ComponentPropsWithoutRef, forwardRef, memo, useId } from "react";
 import cn from "classnames";
 
 import styles from "./Checkbox.module.scss";
@@ -12,52 +12,54 @@ interface CheckboxProps extends ComponentPropsWithoutRef<"input"> {
   disabled?: boolean;
 }
 
-export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  (
-    {
-      variant = "checkbox",
-      clickableLabel,
-      state,
-      disabled,
-      className,
-      children,
-      ...props
-    },
-    ref
-  ): JSX.Element => {
-    const elemId = useId();
+export const Checkbox = memo(
+  forwardRef<HTMLInputElement, CheckboxProps>(
+    (
+      {
+        variant = "checkbox",
+        clickableLabel,
+        state,
+        disabled,
+        className,
+        children,
+        ...props
+      },
+      ref
+    ): JSX.Element => {
+      const elemId = useId();
 
-    return (
-      <div
-        className={cn(
-          className,
-          styles.wrapper,
-          styles[variant],
-          styles[state || ""],
-          disabled && styles.disabled
-        )}
-      >
-        <div className={styles.box}>
-          <input
-            id={clickableLabel ? elemId : undefined}
-            type="checkbox"
-            ref={ref}
-            disabled={disabled}
-            {...props}
-          />
-          {variant === "switch" ? (
-            <div className={styles.customSwitch}>
-              <b></b>
-            </div>
-          ) : (
-            <div className={styles.customCheckbox}>
-              <Icon className={styles.icon} name="check" />
-            </div>
+      return (
+        <div
+          className={cn(
+            className,
+            styles.wrapper,
+            styles[variant],
+            styles[state || ""],
+            disabled && styles.disabled
           )}
-        </div>
+        >
+          <div className={styles.box}>
+            <input
+              id={clickableLabel ? elemId : undefined}
+              type="checkbox"
+              ref={ref}
+              disabled={disabled}
+              {...props}
+            />
+            {variant === "switch" ? (
+              <div className={styles.customSwitch}>
+                <b></b>
+              </div>
+            ) : (
+              <div className={styles.customCheckbox}>
+                <Icon className={styles.icon} name="check" />
+              </div>
+            )}
+          </div>
 
-        <label htmlFor={elemId}>{children}</label>
-      </div>
-    );
-  }
+          <label htmlFor={elemId}>{children}</label>
+        </div>
+      );
+    }
+  )
 );
