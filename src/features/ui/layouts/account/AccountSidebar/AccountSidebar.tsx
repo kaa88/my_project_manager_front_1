@@ -13,16 +13,18 @@ export const AccountSidebar = ({
   className,
 }: ComponentPropsWithoutRef<"div">): JSX.Element => {
   const dispatch = useAppDispatch();
-  const { isSidebarCollapsed } = useAppSelector((state) => state.uiPersist);
+  const collapsed = useAppSelector(
+    (state) => state.uiPersist.isSidebarCollapsed
+  );
 
   const toggleSidebar = (): void => {
-    dispatch(setSidebarCollapsed(!isSidebarCollapsed));
+    dispatch(setSidebarCollapsed(!collapsed));
   };
 
   return (
     <div
       className={cn(className, styles._, {
-        [styles.collapsed]: isSidebarCollapsed,
+        [styles.collapsed]: collapsed,
       })}
     >
       <button className={styles.toggleButton} onClick={toggleSidebar}>

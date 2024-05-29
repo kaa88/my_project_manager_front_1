@@ -1,6 +1,12 @@
-export const _waitFakeServer = (seconds = 1): Promise<any> => {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(true), seconds * 1000);
+export const _fetchFakeServer = (props?: {
+  wait?: number;
+  isError?: boolean;
+}): Promise<any> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (props?.isError) reject(new Error("Fake server error"));
+      else resolve(true);
+    }, (props?.wait || 1) * 1000);
   });
 };
 

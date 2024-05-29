@@ -1,6 +1,8 @@
 import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
 import styles from "./HelloPage.module.scss";
+import { Button } from "../../../ui-kit";
+import { PAGES } from "../../../router/const";
 
 interface HelloPageProps extends ComponentPropsWithoutRef<"div"> {}
 
@@ -13,6 +15,8 @@ export const HelloPage = ({
     <div className={cn([className, styles._])} {...props}>
       <p>HelloPage</p>
       <br />
+      <Button href={PAGES.LOGIN}>LOGIN</Button>
+      <Button href={PAGES.REGISTER}>REGISTER</Button>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti veniam
         dolores minima molestias assumenda corrupti aspernatur odio

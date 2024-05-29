@@ -58,17 +58,19 @@ const navItems: NavItem[] = [
 
 export const AccountMenuNav = memo(
   ({ className, onClick }: ComponentPropsWithoutRef<"a">): JSX.Element => {
-    const { isSidebarCollapsed } = useAppSelector((state) => state.uiPersist);
+    const collapsed = useAppSelector(
+      (state) => state.uiPersist.isSidebarCollapsed
+    );
 
     return (
       <nav className={cn(className, styles.nav)}>
         {navItems.map((item) => (
           <NavLink
             className={cn(styles.navLink, {
-              [styles.collapsed]: isSidebarCollapsed,
+              [styles.collapsed]: collapsed,
             })}
             to={item.link}
-            title={isSidebarCollapsed ? item.text : ""}
+            title={collapsed ? item.text : ""}
             key={item.link}
             onClick={onClick}
           >

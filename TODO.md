@@ -1,12 +1,13 @@
 # TODO
-- иконки стрелок брать все "левые"
+- переделать layout, чтобы скролился body
+
 
 # Задачи фронт
 + верстка AuthLayout
 + верстка AccountLayout + sidebar
 + верстка Modal
 + сделать базовый ui-kit (button, input, spinner, checkbox/switch)
-- верстка форм login register
++- верстка форм login register
 - реализация функционала авторизации
 - верстка и функционал страницы Task (загрузка, сохранение)
 - верстка TaskList

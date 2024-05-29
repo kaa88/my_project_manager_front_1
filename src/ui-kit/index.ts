@@ -16,3 +16,4 @@ export * from "./ModalAlert/ModalAlert";
 export * from "./Pagination/Pagination";
 export * from "./Spinner/Spinner";
 export * from "./UpButton/UpButton";
+export * from "./WarnMessage/WarnMessage";

@@ -16,12 +16,14 @@ export const AccountMenu = ({
   //   dispatch(setMenuActive(false));
   // };
 
-  const { isSidebarCollapsed } = useAppSelector((state) => state.uiPersist);
+  const collapsed = useAppSelector(
+    (state) => state.uiPersist.isSidebarCollapsed
+  );
 
   return (
     <div
       className={cn(className, styles._, {
-        [styles.collapsed]: isSidebarCollapsed,
+        [styles.collapsed]: collapsed,
       })}
     >
       <div className={styles.header}>menu header</div>

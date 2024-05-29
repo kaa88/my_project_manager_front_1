@@ -1,6 +1,9 @@
 import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
+
 import styles from "./LoginPage.module.scss";
+
+import { LoginForm } from "../LoginForm/LoginForm";
 
 interface LoginPageProps extends ComponentPropsWithoutRef<"div"> {}
 
@@ -11,7 +14,8 @@ export const LoginPage = ({
 }: LoginPageProps): JSX.Element => {
   return (
     <div className={cn([className, styles._])} {...props}>
-      LoginPage
+      <h2>Log in</h2>
+      <LoginForm />
     </div>
   );
 };
