@@ -1,6 +1,7 @@
+import styles from "./RegisterPage.module.scss";
 import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
-import styles from "./RegisterPage.module.scss";
+
 import { RegisterForm } from "../RegisterForm/RegisterForm";
 
 interface RegisterPageProps extends ComponentPropsWithoutRef<"div"> {}

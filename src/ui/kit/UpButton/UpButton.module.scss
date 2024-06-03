@@ -1,0 +1,26 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  position: fixed;
+  bottom: var(--container-padding-vertical);
+  right: var(--container-padding-horizontal);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $border-radius;
+  background-color: var(--color-background);
+  opacity: 0.4;
+  @media (max-width: ($media-mobile)) {
+    width: 35px;
+    height: 35px;
+  }
+}
+body .icon {
+  transform: rotate(90deg);
+  width: 80%;
+  height: 80%;
+  color: var(--color-text);
+  fill: var(--color-text);
+}

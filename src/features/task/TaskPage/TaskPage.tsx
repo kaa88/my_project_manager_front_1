@@ -1,6 +1,6 @@
+import styles from "./TaskPage.module.scss";
 import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
-import styles from "./TaskPage.module.scss";
 
 interface TaskPageProps extends ComponentPropsWithoutRef<"div"> {}
 

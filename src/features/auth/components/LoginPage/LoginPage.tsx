@@ -1,7 +1,6 @@
+import styles from "./LoginPage.module.scss";
 import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
-
-import styles from "./LoginPage.module.scss";
 
 import { LoginForm } from "../LoginForm/LoginForm";
 

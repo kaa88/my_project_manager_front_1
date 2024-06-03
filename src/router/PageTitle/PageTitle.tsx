@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
-import { PAGE_NAMES, PAGES } from "../const";
+import { PAGES, PAGE_NAMES } from "../const";
 
 type Indexed = { [key: string]: string };
 

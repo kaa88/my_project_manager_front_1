@@ -1,16 +1,18 @@
-import { ComponentPropsWithoutRef } from "react";
+// import styles from "./LoginForm.module.scss";
+import { ComponentPropsWithoutRef, useState } from "react";
 import cn from "classnames";
 
-import styles from "./LoginForm.module.scss";
+import { DefaultFormStyles as styles, useForm } from "../../../../form";
+import { PAGES } from "../../../../router";
 
 import {
-  Button,
-  InputPassword,
   InputText,
   WarnMessage,
-} from "../../../../ui-kit";
-import { PAGES } from "../../../../router/const";
-import { useForm } from "../../../forms";
+  InputPassword,
+  Button,
+  Spinner,
+} from "../../../../ui/kit";
+import { apiAuth } from "../../api";
 
 const messages = {};
 
@@ -45,8 +47,15 @@ export const LoginForm = ({
   // else navigate('/')
   // }
 
-  const submit = async (): Promise<any> => {
-    console.log("submitted");
+  const [isPending, setIsPending] = useState(false);
+
+  const submit = (): void => {
+    setIsPending(true);
+    apiAuth
+      .login(true)
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err))
+      .finally(() => setIsPending(false));
   };
 
   const form = useForm({
@@ -57,41 +66,75 @@ export const LoginForm = ({
     onSubmit: submit,
   });
 
-  console.log(form);
+  // console.log(form);
 
   return (
-    <form
-      className={cn([className, styles._])}
-      onSubmit={form.submit}
-      {...props}
-    >
-      <InputText
-        className={styles.input}
-        state={form.fields.email.isValid ? undefined : "error"}
-        placeholder="email"
-        value={form.fields.email.value}
-        onChange={form.fields.email.onChange}
-      />
-      <WarnMessage value={form.fields.email.message} />
+    <div className={styles.wrapper}>
+      <h2 className={styles.title}>Log in</h2>
 
-      <InputPassword
-        className={styles.input}
-        state={form.fields.password.isValid ? undefined : "error"}
-        placeholder="password"
-        value={form.fields.password.value}
-        onChange={form.fields.password.onChange}
-      />
-      <WarnMessage value={form.fields.password.message} />
+      <form
+        className={cn([className, styles.form])}
+        onSubmit={form.submit}
+        {...props}
+      >
+        <InputText
+          className={styles.input}
+          state={form.fields.email.isValid ? undefined : "error"}
+          placeholder="email"
+          value={form.fields.email.value}
+          onChange={form.fields.email.onChange}
+          disabled={isPending}
+        />
+        <WarnMessage
+          className={styles.message}
+          value={form.fields.email.message}
+        />
 
-      <WarnMessage
-        value={form.message}
-        state={form.isError ? "error" : "success"}
-      />
+        <InputPassword
+          className={styles.input}
+          state={form.fields.password.isValid ? undefined : "error"}
+          placeholder="password"
+          value={form.fields.password.value}
+          onChange={form.fields.password.onChange}
+          disabled={isPending}
+        />
+        <WarnMessage
+          className={styles.message}
+          value={form.fields.password.message}
+        />
 
-      <Button>Submit</Button>
-      <Button variant="link" href={PAGES.ROOT}>
-        Back
-      </Button>
-    </form>
+        <WarnMessage
+          className={styles.globalMessage}
+          value={form.message}
+          state={form.isError ? "error" : "success"}
+        />
+
+        <div className={styles.buttons}>
+          <Button className={styles.button} disabled={isPending}>
+            Submit
+          </Button>
+          <Button
+            type="button"
+            className={styles.button}
+            variant="link"
+            href={PAGES.REGISTER}
+            disabled={isPending}
+          >
+            Sign up
+          </Button>
+          <Button
+            type="button"
+            className={styles.button}
+            variant="link"
+            href={PAGES.ROOT}
+            disabled={isPending}
+          >
+            Back
+          </Button>
+        </div>
+
+        <Spinner className={styles.loader} hidden={!isPending} />
+      </form>
+    </div>
   );
 };

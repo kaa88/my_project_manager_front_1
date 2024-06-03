@@ -2,6 +2,9 @@
 
 html {
   font-size: 16px;
+
+  // scrollbar-width: thin; // = 8px
+  // scrollbar-color: coral darkred; // thumb track
 }
 
 body {
@@ -16,7 +19,9 @@ body {
     --container-padding-vertical: 14px;
   }
 
+  // Required for script manipulation:
   --timer-modal: #{$timer-modal};
+  --header-height: 0px;
 }
 
 body {
@@ -31,8 +36,9 @@ body {
 }
 
 // #root {
-//   margin: 0 auto;
-//   max-width: $media-d + $media-offset + 10px;
+// height: 100%;
+// margin: 0 auto;
+// max-width: $media-d + $media-offset + 10px;
 // }
 
 h1,

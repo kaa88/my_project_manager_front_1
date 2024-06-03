@@ -1,5 +1,5 @@
 import axios from "axios";
-import { fixPath } from "../utils/utils";
+import { fixPath } from "../shared";
 
 export const api = axios.create({
   baseURL: fixPath(process.env.REACT_APP_API_URL),

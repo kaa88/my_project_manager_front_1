@@ -1,6 +1,6 @@
+import styles from "./TutorialPage.module.scss";
 import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
-import styles from "./TutorialPage.module.scss";
 
 interface TutorialPageProps extends ComponentPropsWithoutRef<"div"> {}
 

@@ -1,6 +1,6 @@
+import styles from "./KanbanPage.module.scss";
 import { ChangeEvent, ComponentPropsWithoutRef, useState } from "react";
 import cn from "classnames";
-import styles from "./KanbanPage.module.scss";
 
 interface KanbanPageProps extends ComponentPropsWithoutRef<"div"> {}
 

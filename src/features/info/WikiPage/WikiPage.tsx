@@ -1,3 +1,4 @@
+import styles from "./WikiPage.module.scss";
 import {
   ChangeEvent,
   ComponentPropsWithoutRef,
@@ -6,25 +7,24 @@ import {
   useState,
 } from "react";
 import cn from "classnames";
-import styles from "./WikiPage.module.scss";
+
 import {
+  DropdownItem,
+  DropdownMultiselectItem,
   Button,
   Checkbox,
   Dropdown,
   DropdownMultiselect,
-  InputNumber,
-  InputPassword,
   InputText,
+  InputPassword,
+  InputNumber,
+  Pagination,
   Spinner,
   UpButton,
-  Pagination,
-  DropdownItem,
-  DropdownMultiselectItem,
   IconList,
-} from "../../../ui-kit";
+} from "../../../ui/kit";
 
 import { CgMenuGridR as Icon } from "react-icons/cg";
-import { useAppSelector } from "../../../store/hooks";
 
 interface WikiPageProps extends ComponentPropsWithoutRef<"div"> {}
 
@@ -105,7 +105,7 @@ export const WikiPage = ({
         </Button>
       </div>
       <Button variant="link">Link</Button>
-      <Button variant="link" icon={<Icon />}>
+      <Button variant="link" icon={<Icon />} disabled={dis} href="/">
         Link icon
       </Button>
       <Button variant="link" disabled>
@@ -177,9 +177,9 @@ export const WikiPage = ({
       <Spinner hidden={dis}></Spinner>
       <Spinner size="small" hidden={dis}></Spinner>
       <UpButton
-        autoHide={false}
+        // autoHide={false}
         scrollableRef={upBtnContentRef}
-        scrollBehavior="smooth"
+        // scrollBehavior="smooth"
       ></UpButton>
       <br />
       <IconList />

@@ -1,6 +1,6 @@
+import styles from "./BoardsPage.module.scss";
 import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
-import styles from "./BoardsPage.module.scss";
 
 interface BoardsPageProps extends ComponentPropsWithoutRef<"div"> {}
 

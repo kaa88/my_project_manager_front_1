@@ -1,6 +1,6 @@
+import styles from "./CalendarPage.module.scss";
 import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
-import styles from "./CalendarPage.module.scss";
 
 interface CalendarPageProps extends ComponentPropsWithoutRef<"div"> {}
 

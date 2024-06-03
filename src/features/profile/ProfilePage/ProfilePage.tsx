@@ -1,9 +1,9 @@
+import styles from "./ProfilePage.module.scss";
 import { ComponentPropsWithoutRef, useRef, useState } from "react";
 import cn from "classnames";
-import styles from "./ProfilePage.module.scss";
-import { BurgerMenu } from "../../../ui-kit/BurgerMenu/BurgerMenu";
-import { Modal } from "../../../ui-kit/Modal/Modal";
-import { Button } from "../../../ui-kit";
+
+import { Modal, Button } from "../../../ui/kit";
+import { BurgerMenu } from "../../../ui/components/BurgerMenu/BurgerMenu";
 
 interface ProfilePageProps extends ComponentPropsWithoutRef<"div"> {}
 

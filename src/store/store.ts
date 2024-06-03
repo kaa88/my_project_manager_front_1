@@ -1,5 +1,5 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { uiPersistReducer, uiReducer } from "../features/ui";
+import { uiPersistReducer, uiReducer } from "../ui";
 
 const rootReducer = combineReducers({
   ui: uiReducer,
