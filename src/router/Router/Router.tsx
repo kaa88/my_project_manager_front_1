@@ -11,8 +11,6 @@ import {
   LoginPage,
   RegisterPage,
   NoAuthRedirect,
-  LoginForm,
-  RegisterForm,
 } from "../../features/auth";
 import { CalendarPage } from "../../features/calendar";
 import {
@@ -54,11 +52,11 @@ export const Router = () => {
               },
               {
                 path: PAGES.LOGIN,
-                element: <LoginForm />,
+                element: <LoginPage />,
               },
               {
                 path: PAGES.REGISTER,
-                element: <RegisterForm />,
+                element: <RegisterPage />,
               },
             ],
           },
@@ -84,6 +82,10 @@ export const Router = () => {
               },
               {
                 path: PAGES.TASK,
+                element: <TaskPage />,
+              },
+              {
+                path: `${PAGES.TASK}/:taskId`,
                 element: <TaskPage />,
               },
               {

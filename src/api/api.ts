@@ -1,7 +1,7 @@
 import axios from "axios";
 import { fixPath } from "../shared";
 
-export const api = axios.create({
+export const apiInstance = axios.create({
   baseURL: fixPath(process.env.REACT_APP_API_URL),
   timeout: Number(process.env.REACT_APP_API_TIMEOUT_SEC) * 1000,
   withCredentials: true,

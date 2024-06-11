@@ -1,9 +1,11 @@
 export const cssVariable = {
-  get: (name: string): number => {
+  get: (name: string, element?: HTMLElement): number => {
     let value: number | null = null;
     if (name) {
       const variable = parseFloat(
-        getComputedStyle(document.body).getPropertyValue(fixName(name))
+        getComputedStyle(element || document.body).getPropertyValue(
+          fixName(name)
+        )
       );
       if (!isNaN(variable)) value = variable;
     }
@@ -14,8 +16,8 @@ export const cssVariable = {
     return value;
   },
 
-  set: (name: string, value: string): void => {
-    document.body.style.setProperty(fixName(name), value);
+  set: (name: string, value: string, element?: HTMLElement): void => {
+    (element || document.body).style.setProperty(fixName(name), value);
   },
 };
 

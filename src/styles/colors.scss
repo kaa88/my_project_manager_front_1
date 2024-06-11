@@ -15,9 +15,14 @@ body {
   --color-secondary-focus: #4f9dec77;
 
   --color-background: #f8f9fa;
-  --color-text: #212529;
-  --color-text-light: #f8f9fa;
-  --color-borders: #d2d2d2;
+
+  --color-text: var(--color-black);
+  --color-text-light: var(--color-background);
+  --color-text-inactive: var(--color-midgray);
+
+  --color-borders: #d2d2d2; // red; // change to color-border
+  // --color-border: #d2d2d2;
+  // --color-border-inactive: var(--color-lightgray);
 
   --color-danger: #dc3545;
   --color-success: #198754;
@@ -39,21 +44,21 @@ body.var1 {
   --color-build-variant: #0d6efd;
 }
 
-// --color-prim: #fff;
-// --color-second: #161428;
-// --color-grayscale-01: #000;
-// --color-grayscale-02: #343F48;
-// --color-grayscale-03: #EDEDED;
-// --color-grayscale-04: #F5F5F5;
-// --color-accent-01: #c6dadd;
-// --color-accent-02: #63f1ca;
-// --color-accent-03: #FED45C;
-// --color-accent-04: #FF8C52;
-// --color-accent-05: #FF3E6C;
-// --color-accent-06: #6E55FF;
-// --color-hover2: #5906EE;
-// --color-focus2: blue;
-// --color-error2: #ff0000;
-// --color-success2: #099205;
-// --color-shadow2: #333;
+// color-prim: #fff;
+// color-second: #161428;
+// color-grayscale-01: #000;
+// color-grayscale-02: #343F48;
+// color-grayscale-03: #EDEDED;
+// color-grayscale-04: #F5F5F5;
+// color-accent-01: #c6dadd;
+// color-accent-02: #63f1ca;
+// color-accent-03: #FED45C;
+// color-accent-04: #FF8C52;
+// color-accent-05: #FF3E6C;
+// color-accent-06: #6E55FF;
+// color-hover2: #5906EE;
+// color-focus2: blue;
+// color-error2: #ff0000;
+// color-success2: #099205;
+// color-shadow2: #333;
 // другие названия чтобы не тупил colorize

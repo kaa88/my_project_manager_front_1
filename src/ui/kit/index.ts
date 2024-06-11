@@ -1,4 +1,5 @@
 export * from "./Anchor/Anchor";
+export * from "./AutoResizeTextarea/AutoResizeTextarea";
 export * from "./BasicModal/BasicModal";
 export * from "./Button/Button";
 export * from "./Checkbox/Checkbox";

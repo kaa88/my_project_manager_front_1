@@ -1,2 +1,2 @@
-export * from "./BoardsPage/BoardsPage";
-export * from "./KanbanPage/KanbanPage";
+export * from "./pages/BoardsPage/BoardsPage";
+export * from "./pages/KanbanPage/KanbanPage";

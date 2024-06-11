@@ -1,1 +1,1 @@
-export * from "./CalendarPage/CalendarPage";
+export * from "./pages/CalendarPage/CalendarPage";

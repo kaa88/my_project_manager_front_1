@@ -1,0 +1,35 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  grid-column-gap: 30px;
+}
+.header {
+  grid-column: span 2;
+  display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  h1 {
+  }
+}
+.main {
+  grid-column: 1;
+}
+.description {
+  background-color: #ddd;
+}
+.subtasks {
+  // background-color: slateblue;
+}
+.comments {
+  background-color: yellow;
+}
+.attachments {
+  background-color: lime;
+}
+.info {
+  grid-column: 2;
+  background-color: #eee;
+}

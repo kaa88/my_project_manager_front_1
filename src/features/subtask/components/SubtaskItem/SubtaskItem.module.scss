@@ -1,0 +1,89 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  position: relative;
+  margin-bottom: 6px;
+  padding: 5px 5px 5px 0;
+  display: flex;
+  background-color: var(--color-bg-main);
+  border: solid 1px var(--color-text-inactive);
+  border-radius: 8px;
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+  &.currentDragging {
+    background-color: var(--color-text-inactive);
+  }
+  @media (max-width: ($media-mxl+px)) {
+    &.currentDragging {
+      visibility: hidden;
+    }
+  }
+}
+.status_done {
+}
+.dragging {
+}
+.dragButton {
+  flex: 0 0 29px; // width=24 + padding=5
+  margin-right: 6px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--color-icons-inactive);
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+.subtaskStatusButton {
+  cursor: pointer;
+  background-color: transparent;
+  width: 25px;
+  flex-shrink: 0;
+  svg {
+    width: 25px;
+    height: 25px;
+    fill: var(--color-icons-inactive);
+  }
+  .status_done & {
+    color: var(--color-success);
+  }
+}
+body .subtaskTitle {
+  --basic-height: 22px;
+  line-height: 19px;
+  padding: 4px 10px;
+  font-size: 14px;
+  background-color: var(--color-textfield-bg);
+  transition: background-color $timer-hover, color $timer-hover;
+  &:focus {
+    border-color: var(--color-textfield-focus);
+  }
+}
+.status_done .subtaskTitle {
+  background-color: var(--color-textfield-done);
+  color: var(--color-text-inactive);
+}
+.autoResizeTextareaWrapper {
+  flex-grow: 1;
+  margin: 0 6px;
+  font-size: 0;
+  position: relative;
+}
+.deleteButton {
+  width: 20px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  fill: var(--color-icons-main);
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}

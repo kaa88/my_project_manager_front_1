@@ -34,11 +34,6 @@ const navItems: NavItem[] = [
     icon: "list",
   },
   {
-    link: PAGES.TASK,
-    text: "Task",
-    icon: "task",
-  },
-  {
     link: PAGES.TUTORIAL,
     text: "Tutorial",
     icon: "book",
