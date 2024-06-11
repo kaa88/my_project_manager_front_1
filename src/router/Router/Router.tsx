@@ -19,7 +19,11 @@ import {
   TutorialPage,
   WikiPage,
 } from "../../features/info";
-import { KanbanPage } from "../../features/kanban";
+import {
+  BoardListPage,
+  BoardPage,
+  BoardSettingsPage,
+} from "../../features/kanban";
 import { ProfilePage } from "../../features/profile";
 import { TaskListPage, TaskPage } from "../../features/task";
 
@@ -73,8 +77,16 @@ export const Router = () => {
                 element: <ProfilePage />,
               },
               {
-                path: PAGES.KANBAN,
-                element: <KanbanPage />,
+                path: `${PAGES.KANBAN_BOARD}/:boardId`,
+                element: <BoardPage />,
+              },
+              {
+                path: `${PAGES.KANBAN_BOARD_SETTINGS}/:boardId`,
+                element: <BoardSettingsPage />,
+              },
+              {
+                path: PAGES.KANBAN_BOARD_LIST,
+                element: <BoardListPage />,
               },
               {
                 path: PAGES.TASK_LIST,

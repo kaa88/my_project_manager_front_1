@@ -1,0 +1,14 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  display: flex;
+  background-color: yellowgreen;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.list {
+  flex: 0 0 auto;
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}

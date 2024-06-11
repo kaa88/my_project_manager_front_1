@@ -16,7 +16,9 @@ export const PAGES = {
   // account:
   CHANGE_PASSWORD: "/change-password",
   PROFILE: "/profile",
-  KANBAN: "/kanban",
+  KANBAN_BOARD: "/kanban/board",
+  KANBAN_BOARD_SETTINGS: "/kanban/board/settings",
+  KANBAN_BOARD_LIST: "/kanban/board/list",
   TASK_LIST: "/task_list",
   TASK: "/task",
   TUTORIAL: "/tutorial",
@@ -35,7 +37,9 @@ export const PAGE_NAMES: typeof PAGES = {
   // account:
   CHANGE_PASSWORD: "Смена пароля",
   PROFILE: "Мой профиль",
-  KANBAN: "/kanban",
+  KANBAN_BOARD: "/kanban/board",
+  KANBAN_BOARD_SETTINGS: "/kanban/board/settings",
+  KANBAN_BOARD_LIST: "/kanban/board/list",
   TASK_LIST: "/task_list",
   TASK: "/task",
   TUTORIAL: "/tutorial",

@@ -1,0 +1,22 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  background-color: yellow;
+  width: 300px;
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.header {
+  font-size: 20px;
+}
+.taskList {
+}
+.task {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+.loader {
+  display: block;
+}

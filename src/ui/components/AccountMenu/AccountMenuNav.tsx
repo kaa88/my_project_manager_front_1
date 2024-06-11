@@ -24,7 +24,7 @@ const navItems: NavItem[] = [
     icon: "person",
   },
   {
-    link: PAGES.KANBAN,
+    link: PAGES.KANBAN_BOARD_LIST,
     text: "Kanban",
     icon: "board",
   },

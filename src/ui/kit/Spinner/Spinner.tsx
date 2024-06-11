@@ -23,7 +23,6 @@ export const Spinner = memo(
       >
         <div className={styles.wrapper}>
           <Icon className={styles.icon} name="spinner" />
-          <Icon className={styles.icon} name="spinner2" />
         </div>
       </div>
     );
