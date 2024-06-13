@@ -4,7 +4,7 @@ import cn from "classnames";
 import { Button } from "../../../../ui/kit";
 import { PAGES } from "../../../../router";
 import { ITask } from "../../../task";
-import { kanbanApi } from "../../kanbanApi";
+import { api } from "../../api";
 
 interface BoardListPageProps extends ComponentPropsWithoutRef<"div"> {}
 
@@ -18,7 +18,7 @@ export const BoardListPage = ({
 
   useEffect(() => {
     setPending(true);
-    kanbanApi
+    api
       .getAll()
       .then((res) => {
         console.log(res);

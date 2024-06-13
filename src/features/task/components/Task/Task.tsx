@@ -1,7 +1,7 @@
 import styles from "./Task.module.scss";
 import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 import cn from "classnames";
-import { taskApi } from "../../api";
+import { api } from "../../api";
 import { ITask } from "../../types";
 import { Button, InputText, Spinner } from "../../../../ui/kit";
 import { TaskInfo } from "../TaskInfo/TaskInfo";
@@ -25,8 +25,8 @@ export const Task = ({
   useEffect(() => {
     if (id) {
       setPending(true);
-      taskApi
-        .get(id)
+      api
+        .getTask(id)
         .then((res) => {
           console.log(res);
           setTask(res.data);

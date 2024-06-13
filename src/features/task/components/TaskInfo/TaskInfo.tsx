@@ -20,10 +20,10 @@ export const TaskInfo = ({
       <p className={styles.id}>{`#${task?.id}`}</p>
       <p className={styles.date}>{`create date: ${task?.createDate || ""}`}</p>
       <p className={styles.date}>{`expire date: ${task?.expireDate || ""}`}</p>
-      <p className={styles.date}>{`close date: ${task?.closeDate || ""}`}</p>
-      <p className={styles.status}>{`status: ${
+      {/* <p className={styles.date}>{`close date: ${task?.closeDate || ""}`}</p> */}
+      {/* <p className={styles.status}>{`status: ${
         task?.closeDate ? "closed" : "open"
-      }`}</p>
+      }`}</p> */}
       <p className={styles.label}>{`label: ${task?.label || ""}`}</p>
       <p className={styles.group}>{`group: ${task?.group || ""}`}</p>
       <p className={styles.creator}>{`creator: ${task?.creator || ""}`}</p>

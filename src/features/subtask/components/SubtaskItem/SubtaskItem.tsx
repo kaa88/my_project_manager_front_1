@@ -12,7 +12,7 @@ import cn from "classnames";
 
 import { AutoResizeTextarea, Icon } from "../../../../ui/kit";
 
-import { ISubtaskItem } from "../../subtask.types";
+import { ISubtaskItem } from "../../types";
 
 interface SubtaskItemProps extends ComponentPropsWithRef<"div"> {
   item: ISubtaskItem;
@@ -33,7 +33,7 @@ export const SubtaskItem = memo(
         dragging,
         className,
         ...props
-      }: SubtaskItemProps,
+      },
       ref
     ) => {
       const [value, setValue] = useState<string | null>(null);

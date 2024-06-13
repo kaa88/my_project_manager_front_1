@@ -12,7 +12,7 @@ import {
   Button,
   Spinner,
 } from "../../../../ui/kit";
-import { apiAuth } from "../../api";
+import { api } from "../../api";
 
 const messages = {};
 
@@ -51,7 +51,7 @@ export const LoginForm = ({
 
   const submit = (): void => {
     setIsPending(true);
-    apiAuth
+    api
       .login(true)
       .then((res) => console.log(res))
       .catch((err) => console.error(err))

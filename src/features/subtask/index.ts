@@ -1,3 +1,4 @@
 export * from "./components/Subtasks/Subtasks";
-export * from "./subtaskApi";
-export * from "./subtask.types";
+export * from "./api";
+export * from "./api.types";
+export * from "./types";

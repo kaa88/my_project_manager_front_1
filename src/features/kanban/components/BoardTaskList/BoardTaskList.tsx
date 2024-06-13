@@ -1,18 +1,17 @@
 import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 import cn from "classnames";
 import styles from "./BoardTaskList.module.scss";
-import { IKanbanLabel } from "../../kanban.types";
+import { IKanbanLabel } from "../../types";
 import { BoardTask } from "../BoardTask/BoardTask";
 import { Spinner } from "../../../../ui/kit";
-import { ITask, taskApi } from "../../../task";
-import { kanbanApi } from "../../kanbanApi";
+import { ITask, api as taskApi } from "../../../task";
 
 interface BoardTaskListProps extends ComponentPropsWithoutRef<"div"> {
-  title: IKanbanLabel["title"];
+  label: IKanbanLabel;
 }
 
 export const BoardTaskList = ({
-  title,
+  label,
   className,
   ...props
 }: BoardTaskListProps): JSX.Element => {
@@ -23,8 +22,8 @@ export const BoardTaskList = ({
 
   useEffect(() => {
     setPending(true);
-    kanbanApi
-      .getTasks()
+    taskApi
+      .getTaskList()
       .then((res) => {
         console.log(res);
         setTasks(res.data);
@@ -35,19 +34,24 @@ export const BoardTaskList = ({
 
   return (
     <div className={cn([className, styles._])} {...props}>
-      <header className={styles.header}>{title}</header>
+      <header
+        className={styles.header}
+        style={label.color ? { borderColor: label.color } : undefined}
+      >
+        <p className={styles.labelName}>{label.title}</p>
+        <p className={styles.taskCount}>{tasks.length}</p>
+      </header>
+
       <div className={styles.taskList}>
-        {tasks.map((task) => (
-          <BoardTask className={styles.task} task={task} key={task.id + 1} />
-        ))}
-        {tasks.map((task) => (
-          <BoardTask className={styles.task} task={task} key={task.id + 2} />
-        ))}
-        {tasks.map((task) => (
-          <BoardTask className={styles.task} task={task} key={task.id + 3} />
-        ))}
+        {tasks.map((task) => {
+          return label.id === task.label ? (
+            <BoardTask className={styles.task} task={task} key={task.id} />
+          ) : null;
+        })}
+
+        <Spinner className={styles.loader} hidden={!pending} />
+        <p>pagination</p>
       </div>
-      <Spinner className={styles.loader} hidden={!pending} />
     </div>
   );
 };

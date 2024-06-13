@@ -11,14 +11,14 @@ import cn from "classnames";
 
 import { AutoResizeTextarea, Icon } from "../../../../ui/kit";
 
-import { ISubtaskItem } from "../../subtask.types";
+import { ISubtaskItem } from "../../types";
 
-interface NewSubtaskProps extends ComponentPropsWithoutRef<"div"> {
+interface NewSubtaskItemProps extends ComponentPropsWithoutRef<"div"> {
   onCreate: (title: ISubtaskItem["title"]) => void;
 }
 
 export const NewSubtaskItem = memo(
-  ({ onCreate, className, ...props }: NewSubtaskProps) => {
+  ({ onCreate, className, ...props }: NewSubtaskItemProps) => {
     const defaultValue = "";
     const [value, setValue] = useState(defaultValue);
     const [isComfirm, setIsConfirm] = useState(false);

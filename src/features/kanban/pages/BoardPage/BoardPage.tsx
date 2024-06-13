@@ -10,8 +10,8 @@ import { Board } from "../../components/Board/Board";
 import { Button } from "../../../../ui/kit";
 import { PAGES } from "../../../../router";
 import { useParams } from "react-router";
-import { IKanbanBoard, IKanbanLabel } from "../../kanban.types";
-import { kanbanApi } from "../../kanbanApi";
+import { IKanbanBoard, IKanbanLabel } from "../../types";
+import { api } from "../../api";
 
 interface BoardPageProps extends ComponentPropsWithoutRef<"div"> {}
 
@@ -27,7 +27,7 @@ export const BoardPage = ({
   useEffect(() => {
     if (boardId) {
       setPending(true);
-      kanbanApi
+      api
         .get(boardId)
         .then((res) => {
           console.log(res);

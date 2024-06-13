@@ -1,16 +1,37 @@
 @import "/src/styles/variables.scss";
 
 ._ {
-  background-color: yellow;
+  position: relative;
   width: 300px;
-  max-height: 500px;
-  overflow-x: hidden;
-  overflow-y: auto;
+  height: 100vh;
+  max-height: 500px; ///////
+  overflow: hidden;
+  background-color: var(--color-lightgray);
+  border-radius: 10px; /////////////
+  display: flex;
+  flex-direction: column;
 }
 .header {
+  padding: 0 5px;
+  background-color: var(--color-lightgray);
+  border-top: solid 5px transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.labelName {
   font-size: 20px;
 }
+.taskCount {
+  font-size: 16px;
+}
+
 .taskList {
+  margin-top: 10px;
+  padding: 0 5px 5px 5px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  @include custom-scrollbar();
 }
 .task {
   &:not(:last-child) {

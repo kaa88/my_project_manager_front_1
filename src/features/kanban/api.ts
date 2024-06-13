@@ -1,9 +1,8 @@
 import { _fetchFakeServer } from "../../api";
-import { taskApi } from "../task";
 import { boards } from "./_data";
-import { IKanbanBoard } from "./kanban.types";
+import { IKanbanBoard } from "./types";
 
-export const kanbanApi = {
+export const api = {
   getAll() {
     return _fetchFakeServer({ data: { data: boards } });
   },
@@ -15,6 +14,4 @@ export const kanbanApi = {
   create() {}, // post
   update() {}, // patch
   delete() {}, // delete
-
-  getTasks: taskApi.getAll,
 };

@@ -1,4 +1,4 @@
-export const subtaskApi = {
+export const api = {
   getList(taskId: string[]) {},
   get() {},
   create() {}, // post

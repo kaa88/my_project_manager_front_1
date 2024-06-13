@@ -4,7 +4,7 @@ export interface ITask {
   descr?: string;
   createDate: string;
   expireDate?: string;
-  closeDate?: string;
+  // closeDate?: string;
   priority?: TaskPriority;
   label?: string; // статус по колонкам доски (только 1 возможная) (в настройках)
   group?: string[]; // группа (в настройках)
@@ -15,7 +15,7 @@ export interface ITask {
   attachments?: string[]; // ids
 }
 
-export type TaskStatus = "open" | "closed";
+// export type TaskStatus = "open" | "closed";
 
 export type TaskPriority = "normal" | "high" | "top";
 export type TaskApiPriority = number; // 0, 1, 2 +

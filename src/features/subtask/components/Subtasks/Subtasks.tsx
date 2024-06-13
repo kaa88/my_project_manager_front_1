@@ -11,8 +11,8 @@ import cn from "classnames";
 import { Button, InputText, Spinner } from "../../../../ui/kit";
 import { ITask } from "../../../task/types";
 
-import { subtaskApi } from "../../subtaskApi";
-import { ISubtaskItem } from "../../subtask.types";
+import { api } from "../../api";
+import { ISubtaskItem } from "../../types";
 
 import { NewSubtaskItem } from "../NewSubtaskItem/NewSubtaskItem";
 import { SubtaskItem } from "../SubtaskItem/SubtaskItem";

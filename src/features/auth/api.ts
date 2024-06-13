@@ -8,7 +8,7 @@ import { _fetchFakeServer } from "../../api";
 
 // type ProviderDepentUrl = { [key in IProviderName]: string };
 
-export const apiAuth = {
+export const api = {
   login(error?: boolean) {
     return _fetchFakeServer({ isError: error });
   },

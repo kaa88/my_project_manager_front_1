@@ -1,10 +1,12 @@
 @import "/src/styles/variables.scss";
 
 ._ {
+  padding: 5px;
   display: flex;
   background-color: yellowgreen;
   overflow-x: auto;
   overflow-y: hidden;
+  @include custom-scrollbar();
 }
 .list {
   flex: 0 0 auto;

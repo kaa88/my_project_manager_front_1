@@ -7,4 +7,5 @@ export interface IKanbanBoard {
 export interface IKanbanLabel {
   id: string;
   title: string;
+  color?: string;
 }

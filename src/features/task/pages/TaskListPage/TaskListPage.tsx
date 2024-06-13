@@ -1,7 +1,7 @@
 import styles from "./TaskListPage.module.scss";
 import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 import cn from "classnames";
-import { taskApi } from "../../api";
+import { api } from "../../api";
 import { ITask } from "../../types";
 import { Link } from "react-router-dom";
 import { PAGES } from "../../../../router";
@@ -19,8 +19,8 @@ export const TaskListPage = ({
 
   useEffect(() => {
     setPending(true);
-    taskApi
-      .getAll()
+    api
+      .getTaskList()
       .then((res) => {
         console.log(res);
         setTasks(res.data);

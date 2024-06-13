@@ -1,4 +1,4 @@
-import { IKanbanBoard, IKanbanLabel } from "./kanban.types";
+import { IKanbanBoard, IKanbanLabel } from "./types";
 
 export const labels: IKanbanLabel[] = [
   {
@@ -8,6 +8,7 @@ export const labels: IKanbanLabel[] = [
   {
     id: "02",
     title: "in progress",
+    color: "#00cc00",
   },
   {
     id: "03",

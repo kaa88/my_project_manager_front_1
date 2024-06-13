@@ -4,4 +4,5 @@ export * from "./components/TaskInfo/TaskInfo";
 export * from "./pages/TaskListPage/TaskListPage";
 export * from "./pages/TaskPage/TaskPage";
 export * from "./api";
+export * from "./api.types";
 export * from "./types";

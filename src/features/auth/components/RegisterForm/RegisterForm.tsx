@@ -13,7 +13,7 @@ import {
   Spinner,
 } from "../../../../ui/kit";
 
-import { apiAuth } from "../../api";
+import { api } from "../../api";
 
 const messages = {};
 
@@ -28,7 +28,7 @@ export const RegisterForm = ({
 
   const submit = (): void => {
     setIsPending(true);
-    apiAuth
+    api
       .register(true)
       .then((res) => console.log(res))
       .catch((err) => console.error(err))

@@ -18,8 +18,12 @@ import {
   CgEyeAlt,
   CgClose,
   CgCheck,
+  CgCheckR,
   CgMoreAlt,
   CgInfo,
+  CgFile,
+  CgFormatLeft,
+  CgStopwatch,
 } from "react-icons/cg";
 
 // all arrows left
@@ -30,6 +34,7 @@ export const icons = {
   chevron_double: <CgChevronDoubleLeft />,
   spinner: <CgSpinner />,
   check: <CgCheck />,
+  check_square: <CgCheckR />,
   cross: <CgClose />,
   eye: <CgEye />,
   eye_closed: <CgEyeAlt />,
@@ -39,9 +44,12 @@ export const icons = {
   menu: <CgMenuGridR />,
   task: <CgLoadbarDoc />,
   list: <CgMenuLeftAlt />,
+  list2: <CgFormatLeft />,
   book: <CgReadme />,
   dots: <CgMoreAlt />,
   info: <CgInfo />,
+  file: <CgFile />,
+  watch: <CgStopwatch />,
 };
 
 export type IconName = keyof typeof icons;
