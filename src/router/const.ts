@@ -1,48 +1,49 @@
-export const LINKS = {
-  EMAIL: "info@example.com",
-  VK: "https://vk.com",
-  VC: "https://vc.ru",
-  TELEGRAM: "https://t.me/kaa021088",
+export const LINK = {
+  // в ед числе... и св-ва в lowercase
+  email: "info@example.com",
+  vk: "https://vk.com",
+  vc: "https://vc.ru",
+  telegram: "https://t.me/kaa021088",
 };
 
-export const PAGES = {
-  ROOT: "/",
-  ERROR: "/error",
+export const PAGE = {
+  root: "/",
+  error: "/error",
   // auth:
-  LOGIN: "/login",
-  REGISTER: "/register",
-  CONFIRM_EMAIL: "/confirm-email",
-  RESET_PASSWORD: "/reset-password",
+  login: "/login",
+  register: "/register",
+  confirmEmail: "/confirm-email",
+  resetPassword: "/reset-password",
   // account:
-  CHANGE_PASSWORD: "/change-password",
-  PROFILE: "/profile",
-  KANBAN_BOARD: "/kanban/board",
-  KANBAN_BOARD_SETTINGS: "/kanban/board/settings",
-  KANBAN_BOARD_LIST: "/kanban/board/list",
-  TASK_LIST: "/task_list",
-  TASK: "/task",
-  TUTORIAL: "/tutorial",
-  WIKI: "/wiki",
-  CALENDAR: "/calendar",
+  changePassword: "/change-password",
+  profile: "/profile",
+  kanbanBoard: "/kanban/board",
+  kanbanBoardSettings: "/kanban/board/settings",
+  kanbanBoardList: "/kanban/board/list",
+  taskList: "/task_list",
+  task: "/task",
+  tutorial: "/tutorial",
+  wiki: "/wiki",
+  calendar: "/calendar",
 };
 
-export const PAGE_NAMES: typeof PAGES = {
-  ROOT: "",
-  ERROR: "Ошибка",
+export const PAGE_NAME: typeof PAGE = {
+  root: "",
+  error: "Ошибка",
   // auth:
-  LOGIN: "Вход",
-  REGISTER: "Регистрация",
-  CONFIRM_EMAIL: "Подтверждение пароля",
-  RESET_PASSWORD: "Сброс пароля",
+  login: "Вход",
+  register: "Регистрация",
+  confirmEmail: "Подтверждение пароля",
+  resetPassword: "Сброс пароля",
   // account:
-  CHANGE_PASSWORD: "Смена пароля",
-  PROFILE: "Мой профиль",
-  KANBAN_BOARD: "/kanban/board",
-  KANBAN_BOARD_SETTINGS: "/kanban/board/settings",
-  KANBAN_BOARD_LIST: "/kanban/board/list",
-  TASK_LIST: "/task_list",
-  TASK: "/task",
-  TUTORIAL: "/tutorial",
-  WIKI: "/wiki",
-  CALENDAR: "/calendar",
+  changePassword: "Смена пароля",
+  profile: "Мой профиль",
+  kanbanBoard: "/kanban/board",
+  kanbanBoardSettings: "/kanban/board/settings",
+  kanbanBoardList: "/kanban/board/list",
+  taskList: "/task_list",
+  task: "/task",
+  tutorial: "/tutorial",
+  wiki: "/wiki",
+  calendar: "/calendar",
 };

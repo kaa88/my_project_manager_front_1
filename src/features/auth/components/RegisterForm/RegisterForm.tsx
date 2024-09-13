@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, useState } from "react";
 import cn from "classnames";
 
 import { DefaultFormStyles as styles, useForm } from "../../../../form";
-import { PAGES } from "../../../../router";
+import { PAGE } from "../../../../router";
 
 import {
   InputText,
@@ -119,7 +119,7 @@ export const RegisterForm = ({
             type="button"
             className={styles.button}
             variant="link"
-            href={PAGES.LOGIN}
+            href={PAGE.login}
             disabled={isPending}
           >
             Log in
@@ -128,7 +128,7 @@ export const RegisterForm = ({
             type="button"
             className={styles.button}
             variant="link"
-            href={PAGES.ROOT}
+            href={PAGE.root}
             disabled={isPending}
           >
             Back

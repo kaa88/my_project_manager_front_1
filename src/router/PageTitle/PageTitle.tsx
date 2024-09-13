@@ -1,12 +1,12 @@
 import { ComponentPropsWithoutRef, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
-import { PAGES, PAGE_NAMES } from "../const";
+import { PAGE, PAGE_NAME } from "../const";
 
 type Indexed = { [key: string]: string };
 
-const p = PAGES as Indexed;
-const pn = PAGE_NAMES as Indexed;
+const p = PAGE as Indexed;
+const pn = PAGE_NAME as Indexed;
 
 const siteName = "my_project_manager";
 const divider = " | ";

@@ -2,7 +2,7 @@ import styles from "./BoardListPage.module.scss";
 import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 import cn from "classnames";
 import { Button } from "../../../../ui/kit";
-import { PAGES } from "../../../../router";
+import { PAGE } from "../../../../router";
 import { ITask } from "../../../task";
 import { api } from "../../api";
 
@@ -31,7 +31,7 @@ export const BoardListPage = ({
   return (
     <div className={cn([className, styles._])} {...props}>
       {boards.map((board) => (
-        <Button href={`${PAGES.KANBAN_BOARD}/${board.id}`} key={board.id}>
+        <Button href={`${PAGE.kanbanBoard}/${board.id}`} key={board.id}>
           board {board.title}
         </Button>
       ))}

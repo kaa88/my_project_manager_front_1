@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { fixPath } from "../../shared";
 
-import { PAGES, PAGE_NAMES } from "../const";
+import { PAGE, PAGE_NAME } from "../const";
 import { PageTitle } from "../PageTitle/PageTitle";
 
 import { AuthLayout, AccountLayout } from "../../ui";
@@ -35,7 +35,7 @@ export const Router = () => {
         element: (
           <>
             <ErrorPage />
-            <PageTitle title={PAGE_NAMES.ERROR} />
+            <PageTitle title={PAGE_NAME.error} />
           </>
         ),
       },
@@ -51,15 +51,15 @@ export const Router = () => {
             ),
             children: [
               {
-                path: PAGES.ROOT,
+                path: PAGE.root,
                 element: <HelloPage />,
               },
               {
-                path: PAGES.LOGIN,
+                path: PAGE.login,
                 element: <LoginPage />,
               },
               {
-                path: PAGES.REGISTER,
+                path: PAGE.register,
                 element: <RegisterPage />,
               },
             ],
@@ -73,43 +73,43 @@ export const Router = () => {
             ),
             children: [
               {
-                path: PAGES.PROFILE,
+                path: PAGE.profile,
                 element: <ProfilePage />,
               },
               {
-                path: `${PAGES.KANBAN_BOARD}/:boardId`,
+                path: `${PAGE.kanbanBoard}/:boardId`,
                 element: <BoardPage />,
               },
               {
-                path: `${PAGES.KANBAN_BOARD_SETTINGS}/:boardId`,
+                path: `${PAGE.kanbanBoardSettings}/:boardId`,
                 element: <BoardSettingsPage />,
               },
               {
-                path: PAGES.KANBAN_BOARD_LIST,
+                path: PAGE.kanbanBoardList,
                 element: <BoardListPage />,
               },
               {
-                path: PAGES.TASK_LIST,
+                path: PAGE.taskList,
                 element: <TaskListPage />,
               },
               {
-                path: PAGES.TASK,
+                path: PAGE.task,
                 element: <TaskPage />,
               },
               {
-                path: `${PAGES.TASK}/:taskId`,
+                path: `${PAGE.task}/:taskId`,
                 element: <TaskPage />,
               },
               {
-                path: PAGES.TUTORIAL,
+                path: PAGE.tutorial,
                 element: <TutorialPage />,
               },
               {
-                path: PAGES.WIKI,
+                path: PAGE.wiki,
                 element: <WikiPage />,
               },
               {
-                path: PAGES.CALENDAR,
+                path: PAGE.calendar,
                 element: <CalendarPage />,
               },
             ],

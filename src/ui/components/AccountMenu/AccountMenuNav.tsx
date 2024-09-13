@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import cn from "classnames";
 
 import { useAppSelector } from "../../../store";
-import { PAGES } from "../../../router";
+import { PAGE } from "../../../router";
 
 import { Icon, IconName } from "../../kit";
 
@@ -19,32 +19,32 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    link: PAGES.PROFILE,
+    link: PAGE.profile,
     text: "Profile",
     icon: "person",
   },
   {
-    link: PAGES.KANBAN_BOARD_LIST,
+    link: PAGE.kanbanBoardList,
     text: "Kanban",
     icon: "board",
   },
   {
-    link: PAGES.TASK_LIST,
+    link: PAGE.taskList,
     text: "Task list",
     icon: "list",
   },
   {
-    link: PAGES.TUTORIAL,
+    link: PAGE.tutorial,
     text: "Tutorial",
     icon: "book",
   },
   {
-    link: PAGES.WIKI,
+    link: PAGE.wiki,
     text: "Wiki",
     icon: "book",
   },
   {
-    link: PAGES.CALENDAR,
+    link: PAGE.calendar,
     text: "Calendar",
     icon: "calendar",
   },

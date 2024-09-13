@@ -2,7 +2,7 @@ import styles from "./HelloPage.module.scss";
 import { ComponentPropsWithoutRef, useRef, useState } from "react";
 import cn from "classnames";
 
-import { PAGES } from "../../../../router";
+import { PAGE } from "../../../../router";
 
 import { Button, UpButton } from "../../../../ui/kit";
 
@@ -27,8 +27,8 @@ export const HelloPage = ({
     <div className={cn([className, styles._])} ref={mainRef} {...props}>
       <p>HelloPage</p>
       <br />
-      <Button href={PAGES.LOGIN}>LOGIN</Button>
-      <Button href={PAGES.REGISTER}>REGISTER</Button>
+      <Button href={PAGE.login}>LOGIN</Button>
+      <Button href={PAGE.register}>REGISTER</Button>
       <button onClick={() => setText(text + 1)}>add text</button>
       <button onClick={() => setText(text - 1)}>remove text</button>
       {t}

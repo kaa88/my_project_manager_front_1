@@ -4,7 +4,7 @@ import cn from "classnames";
 import { api } from "../../api";
 import { ITask } from "../../types";
 import { Link } from "react-router-dom";
-import { PAGES } from "../../../../router";
+import { PAGE } from "../../../../router";
 import { Button, Spinner } from "../../../../ui/kit";
 
 interface TaskListPageProps extends ComponentPropsWithoutRef<"div"> {}
@@ -41,12 +41,12 @@ export const TaskListPage = ({
       <p>Search</p>
       <p>Recent Searches</p>
       <p>Show #number# items</p>
-      <Button href={PAGES.TASK}>New task</Button>
+      <Button href={PAGE.task}>New task</Button>
       <Spinner hidden={!pending} />
 
       {tasks.map((task) => (
         <div className={styles.task} key={task.id}>
-          <Link to={`${PAGES.TASK}/${task.id}`}>{task.title}</Link>
+          <Link to={`${PAGE.task}/${task.id}`}>{task.title}</Link>
         </div>
       ))}
     </div>

@@ -8,7 +8,7 @@ import {
 import cn from "classnames";
 import { Board } from "../../components/Board/Board";
 import { Button } from "../../../../ui/kit";
-import { PAGES } from "../../../../router";
+import { PAGE } from "../../../../router";
 import { useParams } from "react-router";
 import { IKanbanBoard, IKanbanLabel } from "../../types";
 import { api } from "../../api";
@@ -40,8 +40,8 @@ export const BoardPage = ({
 
   return (
     <div className={cn([className, styles._])} {...props}>
-      <Button href={PAGES.KANBAN_BOARD_LIST}>Board list</Button>
-      <Button href={`${PAGES.KANBAN_BOARD_SETTINGS}/${boardId}`}>
+      <Button href={PAGE.kanbanBoardList}>Board list</Button>
+      <Button href={`${PAGE.kanbanBoardSettings}/${boardId}`}>
         Edit board
       </Button>
 

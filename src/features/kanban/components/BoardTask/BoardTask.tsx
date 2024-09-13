@@ -3,7 +3,7 @@ import cn from "classnames";
 import styles from "./BoardTask.module.scss";
 import { ITask } from "../../../task";
 import { Icon } from "../../../../ui/kit";
-import { PAGES } from "../../../../router";
+import { PAGE } from "../../../../router";
 import { Link } from "react-router-dom";
 
 interface BoardTaskProps extends ComponentPropsWithoutRef<"div"> {
@@ -31,7 +31,7 @@ export const BoardTask = ({
       {...props}
     >
       <div className={styles.header}>
-        <Link className={styles.title} to={`${PAGES.TASK}/${task.id}`}>
+        <Link className={styles.title} to={`${PAGE.task}/${task.id}`}>
           {task.title}
         </Link>
         <div className={styles.id}>{`#${task.id}`}</div>
