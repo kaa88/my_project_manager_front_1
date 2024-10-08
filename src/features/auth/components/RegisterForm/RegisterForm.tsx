@@ -2,18 +2,17 @@
 import { ComponentPropsWithoutRef, useState } from "react";
 import cn from "classnames";
 
-import { DefaultFormStyles as styles, useForm } from "../../../../form";
-import { PAGE } from "../../../../router";
+import { DefaultFormStyles as styles, useForm } from "../../../../shared/form";
+import { PAGE } from "../../../../shared/router";
 
+import { api } from "../../api";
 import {
   InputText,
   WarnMessage,
   InputPassword,
   Button,
   Spinner,
-} from "../../../../ui/kit";
-
-import { api } from "../../api";
+} from "../../../../shared/ui";
 
 const messages = {};
 

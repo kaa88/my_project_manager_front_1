@@ -3,9 +3,9 @@ import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 import cn from "classnames";
 import { api } from "../../api";
 import { ITask } from "../../types";
-import { Button, InputText, Spinner } from "../../../../ui/kit";
 import { TaskInfo } from "../TaskInfo/TaskInfo";
 import { Subtasks } from "../../../subtask";
+import { Spinner, Button } from "../../../../shared/ui";
 // import { Comments } from "../Comments/Comments";
 // import { Attachments } from "../Attachments/Attachments";
 

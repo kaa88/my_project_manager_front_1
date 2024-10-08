@@ -1,4 +1,4 @@
-import { _fetchFakeServer } from "../../api";
+import { _fetchFakeServer } from "../../shared/api";
 import { tasks } from "./_data";
 import { ITask } from "./types";
 

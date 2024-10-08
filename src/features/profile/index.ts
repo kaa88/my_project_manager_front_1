@@ -1,1 +1,2 @@
-export * from "./pages/ProfilePage/ProfilePage";
+// export * from "./pages/ProfilePage/ProfilePage";
+export default {};

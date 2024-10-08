@@ -1,7 +1,7 @@
 import styles from "./NewTask.module.scss";
 import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
-import { Button, InputText } from "../../../../ui/kit";
+import { InputText, Button } from "../../../../shared/ui";
 // import { Subtasks } from "../Subtasks/Subtasks";
 // import { Comments } from "../Comments/Comments";
 // import { Attachments } from "../Attachments/Attachments";

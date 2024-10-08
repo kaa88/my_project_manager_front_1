@@ -1,0 +1,38 @@
+@import "/src/shared/styles/variables.scss";
+
+.input {
+  font-size: 16px;
+  padding: 0 em(12);
+  width: 100%;
+  height: em(44);
+  border: solid em(1) var(--color-borders);
+  border-radius: em($border-radius);
+  background-color: var(--color-white);
+  transition: background-color $timer-hover, border-color $timer-hover,
+    color $timer-hover;
+  color: var(--color-midgray);
+  &::placeholder {
+    color: var(--color-midgray);
+    transition: color $timer-hover;
+  }
+  &:focus {
+    border-color: var(--color-text);
+    color: var(--color-text);
+  }
+  &.success:not(:disabled) {
+    border-color: var(--color-success);
+  }
+  &.error:not(:disabled) {
+    border-color: var(--color-danger);
+  }
+  &:disabled {
+    background-color: var(--color-lightgray);
+    color: var(--color-borders);
+    &::placeholder {
+      color: var(--color-borders);
+    }
+  }
+  @media (max-width: ($media-mobile)) {
+    font-size: 14px;
+  }
+}

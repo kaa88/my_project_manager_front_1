@@ -3,8 +3,8 @@ import cn from "classnames";
 import styles from "./BoardTaskList.module.scss";
 import { IKanbanLabel } from "../../types";
 import { BoardTask } from "../BoardTask/BoardTask";
-import { Spinner } from "../../../../ui/kit";
 import { ITask, api as taskApi } from "../../../task";
+import { Spinner } from "../../../../shared/ui";
 
 interface BoardTaskListProps extends ComponentPropsWithoutRef<"div"> {
   label: IKanbanLabel;

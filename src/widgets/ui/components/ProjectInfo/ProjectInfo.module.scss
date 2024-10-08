@@ -1,0 +1,20 @@
+@import "/src/shared/styles/variables.scss";
+
+._ {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 var(--container-padding-horizontal);
+  font-size: 12px;
+}
+.item {
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+  a {
+    margin-left: 4px;
+    text-decoration: underline;
+    &:focus-visible {
+      @include focus(#ffffff77);
+    }
+  }
+}

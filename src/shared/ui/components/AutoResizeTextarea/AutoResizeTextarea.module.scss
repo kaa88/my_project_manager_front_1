@@ -1,0 +1,37 @@
+@import "/src/shared/styles/variables.scss";
+
+.wrapper {
+  position: relative;
+}
+.input,
+.fakeInput {
+  --basic-height: 22px;
+  height: var(--basic-height);
+  // don't change height manually, use '--basic-height' variable
+  padding: 0 8px;
+  width: 100%;
+  min-width: 50px;
+  border: solid 1px transparent;
+  border-radius: 8px;
+  resize: none !important;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+.input {
+  overflow: hidden;
+  &:focus + .inputsBackground {
+    border-color: var(--color-borders);
+  }
+  &::placeholder {
+    color: var(--color-text-inactive);
+  }
+}
+.fakeInput {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  z-index: -1 !important;
+  visibility: hidden !important;
+}

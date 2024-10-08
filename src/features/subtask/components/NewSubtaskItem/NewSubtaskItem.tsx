@@ -9,9 +9,8 @@ import {
 } from "react";
 import cn from "classnames";
 
-import { AutoResizeTextarea, Icon } from "../../../../ui/kit";
-
 import { ISubtaskItem } from "../../types";
+import { Icon, AutoResizeTextarea } from "../../../../shared/ui";
 
 interface NewSubtaskItemProps extends ComponentPropsWithoutRef<"div"> {
   onCreate: (title: ISubtaskItem["title"]) => void;

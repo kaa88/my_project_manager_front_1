@@ -1,6 +1,6 @@
 // import * as types from "../models/auth";
 
-import { _fetchFakeServer } from "../../api";
+import { _fetchFakeServer } from "../../shared/api";
 
 // import { getAuthHeaders, api } from "./index";
 

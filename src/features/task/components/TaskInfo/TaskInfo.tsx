@@ -2,7 +2,6 @@ import styles from "./TaskInfo.module.scss";
 import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 import cn from "classnames";
 import { ITask } from "../../types";
-import { Spinner } from "../../../../ui/kit";
 
 interface TaskInfoProps extends ComponentPropsWithoutRef<"div"> {
   task: ITask | null | undefined;

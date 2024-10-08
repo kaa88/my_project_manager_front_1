@@ -2,9 +2,9 @@ import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
 import styles from "./BoardTask.module.scss";
 import { ITask } from "../../../task";
-import { Icon } from "../../../../ui/kit";
-import { PAGE } from "../../../../router";
+import { PAGE } from "../../../../shared/router";
 import { Link } from "react-router-dom";
+import { Icon } from "../../../../shared/ui";
 
 interface BoardTaskProps extends ComponentPropsWithoutRef<"div"> {
   task: ITask;

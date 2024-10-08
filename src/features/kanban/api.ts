@@ -1,4 +1,4 @@
-import { _fetchFakeServer } from "../../api";
+import { _fetchFakeServer } from "../../shared/api";
 import { boards } from "./_data";
 import { IKanbanBoard } from "./types";
 

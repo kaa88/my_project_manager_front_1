@@ -1,0 +1,24 @@
+@import "/src/shared/styles/variables.scss";
+
+body {
+  .closeBtn {
+    top: 5px;
+    right: 5px;
+    border-radius: $border-radius;
+    background-color: transparent;
+    transition: background-color $timer-hover;
+    &:focus-visible {
+      background-color: var(--color-lightgray);
+    }
+  }
+  .wrapper {
+    padding: 40px $scrollbar-margin;
+    border-radius: $border-radius;
+    background-color: var(--color-background);
+  }
+  .content {
+    padding: 0 var(--container-padding-horizontal);
+    max-height: calc(96vh - 80px);
+    @include custom-scrollbar();
+  }
+}

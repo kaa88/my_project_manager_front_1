@@ -10,9 +10,8 @@ import {
 } from "react";
 import cn from "classnames";
 
-import { AutoResizeTextarea, Icon } from "../../../../ui/kit";
-
 import { ISubtaskItem } from "../../types";
+import { Icon, AutoResizeTextarea } from "../../../../shared/ui";
 
 interface SubtaskItemProps extends ComponentPropsWithRef<"div"> {
   item: ISubtaskItem;
