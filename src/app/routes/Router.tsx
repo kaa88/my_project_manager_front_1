@@ -30,7 +30,7 @@ export const Router = () => {
           },
           {
             path: PAGE.login,
-            element: <Pages.LoginPage />,
+            element: <Pages.LogInPage />,
           },
           {
             path: PAGE.register,

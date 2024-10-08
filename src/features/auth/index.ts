@@ -1,4 +1,4 @@
-export * from "./components/LoginForm/LoginForm";
+export * from "./components/LogInForm/LogInForm";
 export * from "./components/RegisterForm/RegisterForm";
 export * from "./hoc/AuthRedirect/AuthRedirect";
 export * from "./hoc/NoAuthRedirect/NoAuthRedirect";

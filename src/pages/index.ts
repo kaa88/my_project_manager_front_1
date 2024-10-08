@@ -1,4 +1,4 @@
-export * from "./auth/LoginPage/LoginPage";
+export * from "./auth/LogInPage/LogInPage";
 export * from "./auth/RegisterPage/RegisterPage";
 export * from "./board/BoardListPage/BoardListPage";
 export * from "./board/BoardPage/BoardPage";

@@ -1,4 +1,4 @@
-// import styles from "./LoginForm.module.scss";
+// import styles from "./LogInForm.module.scss";
 import { ComponentPropsWithoutRef, useState } from "react";
 import cn from "classnames";
 
@@ -16,13 +16,13 @@ import {
 
 const messages = {};
 
-interface LoginFormProps extends ComponentPropsWithoutRef<"form"> {}
+interface LogInFormProps extends ComponentPropsWithoutRef<"form"> {}
 
-export const LoginForm = ({
+export const LogInForm = ({
   className,
   children,
   ...props
-}: LoginFormProps): JSX.Element => {
+}: LogInFormProps): JSX.Element => {
   // const schema1241 = yup.object({
   //   email: yup.string().email(messages.email).required(messages.required),
   //   password: yup.string().required(messages.required),
