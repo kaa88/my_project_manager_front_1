@@ -8,7 +8,7 @@ import {
 } from "react";
 import cn from "classnames";
 
-import { useAppDispatch, useAppSelector } from "../../../store";
+import { useAppDispatch, useAppSelector } from "../../../../app/store";
 // import { setActiveDropdown } from "../../store";
 
 // мб сделать здесь свой файл стора или контекст?

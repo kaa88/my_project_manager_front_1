@@ -15,6 +15,7 @@ import cn from "classnames";
 import { cssVariable } from "../../../shared/ui";
 import { ProjectInfo } from "../../../widgets/ui/components/ProjectInfo/ProjectInfo";
 import { TechnicalWorkAlert } from "../../../widgets/ui/components/TechnicalWorkAlert/TechnicalWorkAlert";
+import { AuthRedirect } from "../../../features/auth";
 
 interface AuthLayoutProps extends ComponentPropsWithoutRef<"div"> {
   variant?: "error";
@@ -48,26 +49,28 @@ export const AuthLayout = ({
   }, []); // eslint-disable-line
 
   return (
-    <div className={cn(styles._, !!variant && styles[variant])}>
-      <div className={styles.bg}>
-        <div></div>
-        <div></div>
-      </div>
-
-      <header className={styles.header} ref={headerRef}>
-        <TechnicalWorkAlert className={styles.techAlert} />
-
-        <div className={styles.banner}>
-          <h2>{process.env.REACT_APP_TITLE}</h2>
+    <AuthRedirect>
+      <div className={cn(styles._, !!variant && styles[variant])}>
+        <div className={styles.bg}>
+          <div></div>
+          <div></div>
         </div>
-      </header>
 
-      <main className={styles.main}>
-        <ScrollRestoration />
-        <div className={styles.container}>{children || <Outlet />}</div>
-      </main>
+        <header className={styles.header} ref={headerRef}>
+          <TechnicalWorkAlert className={styles.techAlert} />
 
-      <ProjectInfo className={styles.info} />
-    </div>
+          <div className={styles.banner}>
+            <h2>{process.env.REACT_APP_TITLE}</h2>
+          </div>
+        </header>
+
+        <main className={styles.main}>
+          <ScrollRestoration />
+          <div className={styles.container}>{children || <Outlet />}</div>
+        </main>
+
+        <ProjectInfo className={styles.info} />
+      </div>
+    </AuthRedirect>
   );
 };

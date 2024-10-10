@@ -2,7 +2,7 @@ import styles from "./AccountMenu.module.scss";
 import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
 
-import { useAppSelector } from "../../../../shared/store";
+import { useAppSelector } from "../../../../app/store";
 
 import { AccountMenuNav } from "./AccountMenuNav";
 
