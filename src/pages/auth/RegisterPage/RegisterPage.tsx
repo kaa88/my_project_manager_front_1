@@ -1,21 +1,19 @@
 import { Link } from "react-router-dom";
-import { RegisterForm } from "../../../features/auth";
+import { Button } from "antd";
+import Title from "antd/es/typography/Title";
 import { PAGE, PageTitle } from "../../../shared/router";
+import { RegisterForm } from "../../../features/auth";
 
 export const RegisterPage = (): JSX.Element => {
   return (
     <>
       <PageTitle />
-      <h2>Register</h2>
+
+      <Title>Register</Title>
       <RegisterForm />
-      <Link
-        type="button"
-        // className={styles.button}
-        // variant="link"
-        to={PAGE.login}
-        // disabled={isPending}
-      >
-        Log in
+
+      <Link to={PAGE.login}>
+        <Button type="link">Log in</Button>
       </Link>
     </>
   );

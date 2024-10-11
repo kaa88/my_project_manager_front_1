@@ -1,0 +1,60 @@
+@import "/src/shared/styles/variables.scss";
+
+._ {
+  width: 100%;
+  min-height: 100vh;
+
+  &[data-sidebar="full"] {
+    --sidebar-width: 250px;
+    @media (max-width: ($media-tablet)) {
+      --sidebar-width: 200px;
+    }
+  }
+  &[data-sidebar="collapsed"] {
+    --sidebar-width: 50px;
+  }
+  &[data-sidebar="full"],
+  &[data-sidebar="collapsed"] {
+    @media (max-width: ($media-mobile)) {
+      --sidebar-width: 0;
+    }
+  }
+}
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: $z-index-header;
+  background-color: var(--color-background);
+}
+.innerHeader {
+  padding: 0 var(--container-padding-horizontal);
+  background-color: var(--color-build-variant);
+}
+.techAlert {
+  position: relative;
+  z-index: 10;
+}
+.sidebar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - 100%);
+  overflow: hidden;
+  transition: width $timer-sidebar;
+  @media (max-width: ($media-mobile)) {
+    display: none;
+  }
+}
+.main {
+  margin-left: var(--sidebar-width);
+  padding: var(--container-padding-vertical) var(--container-padding-horizontal);
+  background-color: var(--color-background);
+  transition: margin-left $timer-sidebar;
+}
+.container {
+  position: relative;
+  width: 100%;
+  // background-color: lightgray;
+}

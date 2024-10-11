@@ -16,16 +16,16 @@ export const NoAuthRedirect = ({
   const isAuth = useAppSelector((state) => state.auth.isAuth);
 
   // If token expires, set current path as logOutPath to go back to it later
-  useLayoutEffect(() => {
-    if (!isAuth) {
-      const isPathForbidden = !!forbiddenPaths.find((p) =>
-        new RegExp(p, "i").test(location.pathname)
-      );
+  // useLayoutEffect(() => {
+  //   if (!isAuth) {
+  //     const isPathForbidden = !!forbiddenPaths.find((p) =>
+  //       new RegExp(p, "i").test(location.pathname)
+  //     );
 
-      dispatch(setLogOutPath(isPathForbidden ? "" : location.pathname));
-      navigate(PAGE.login, { replace: true });
-    }
-  }, [isAuth, location.pathname]); // eslint-disable-line react-hooks/exhaustive-deps
+  //     dispatch(setLogOutPath(isPathForbidden ? "" : location.pathname));
+  //     navigate(PAGE.login, { replace: true });
+  //   }
+  // }, [isAuth, location.pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return <>{children}</>;
 };

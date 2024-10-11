@@ -152,15 +152,17 @@ type FieldType = {
 
 export const LogInForm = ({
   className,
-  children,
   ...props
 }: LogInFormProps): JSX.Element => {
   const dispatch = useAppDispatch();
 
+  const [pending, setPending] = useState(false);
+
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     console.log("Success:", values);
 
-    if (values.email && values.password)
+    if (values.email && values.password) {
+      setPending(true);
       api
         .login({ email: values.email, password: values.password })
         .then((res) => {
@@ -170,7 +172,9 @@ export const LogInForm = ({
         .catch((err) => {
           console.log(err);
           dispatch(setIsAuth(false));
-        });
+        })
+        .finally(() => setPending(false));
+    }
   };
 
   const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
@@ -184,17 +188,21 @@ export const LogInForm = ({
       <Form
         name="login"
         labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
+        // wrapperCol={{ span: 16 }}
         style={{ maxWidth: 600 }}
-        initialValues={{ remember: true }}
+        // initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
-        autoComplete="off"
+        // autoComplete="off"
+        disabled={pending}
       >
         <Form.Item<FieldType>
           label="Email"
           name="email"
-          rules={[{ required: true, message: "Please input your email!" }]}
+          rules={[
+            { required: true, message: "Required field" },
+            { type: "email", message: "Incorrect email format" },
+          ]}
         >
           <Input />
         </Form.Item>
@@ -202,7 +210,7 @@ export const LogInForm = ({
         <Form.Item<FieldType>
           label="Password"
           name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
+          rules={[{ required: true, message: "Required field" }]}
         >
           <Input.Password />
         </Form.Item>
@@ -213,18 +221,6 @@ export const LogInForm = ({
           </Button>
         </Form.Item>
       </Form>
-
-      <button
-        type="button"
-        onClick={() =>
-          api
-            .getUsers()
-            .then((res) => console.log(res))
-            .catch((err) => console.log(err))
-        }
-      >
-        GET USERS
-      </button>
     </>
   );
 };

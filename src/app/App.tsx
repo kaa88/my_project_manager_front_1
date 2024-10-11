@@ -1,11 +1,10 @@
 import { Provider as StoreProvider } from "react-redux";
 import { store } from "./store";
 
-import { ConfigProvider as AntdConfigProvider } from "antd";
-import { antdConfig } from "./antd/config";
-
 import { Router } from "./routes/Router";
 
+import { ConfigProvider as AntdConfigProvider } from "antd";
+import { antdConfig } from "./styles/antdConfig";
 import "./styles/index.scss";
 
 export const App = () => {

@@ -159,7 +159,7 @@ interface RegisterFormProps extends ComponentPropsWithoutRef<"form"> {}
 type FieldType = {
   email?: string;
   password?: string;
-  repeatPassword?: string;
+  confirmPassword?: string;
 };
 
 export const RegisterForm = ({
@@ -169,20 +169,25 @@ export const RegisterForm = ({
 }: RegisterFormProps): JSX.Element => {
   const dispatch = useAppDispatch();
 
+  const [pending, setPending] = useState(false);
+
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     console.log("Success:", values);
 
-    if (values.email && values.password)
-      api
-        .register({ email: values.email, password: values.password })
-        .then((res) => {
-          console.log(res.data);
-          dispatch(setIsAuth(true));
-        })
-        .catch((err) => {
-          console.log(err);
-          dispatch(setIsAuth(false));
-        });
+    // if (values.email && values.password) {
+    //   setPending(true);
+    //   api
+    //     .register({ email: values.email, password: values.password })
+    //     .then((res) => {
+    //       console.log(res.data);
+    //       dispatch(setIsAuth(true));
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //       dispatch(setIsAuth(false));
+    //     })
+    //     .finally(() => setPending(false));
+    // }
   };
 
   const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
@@ -193,19 +198,23 @@ export const RegisterForm = ({
 
   return (
     <Form
-      name="login"
+      name="register"
       labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
+      // wrapperCol={{ span: 16 }}
       style={{ maxWidth: 600 }}
-      initialValues={{ remember: true }}
+      // initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
-      autoComplete="off"
+      // autoComplete="off"
+      disabled={pending}
     >
       <Form.Item<FieldType>
         label="Email"
         name="email"
-        rules={[{ required: true, message: "Please input your email!" }]}
+        rules={[
+          { required: true, message: "Required field" },
+          { type: "email", message: "Incorrect email format" },
+        ]}
       >
         <Input />
       </Form.Item>
@@ -213,15 +222,25 @@ export const RegisterForm = ({
       <Form.Item<FieldType>
         label="Password"
         name="password"
-        rules={[{ required: true, message: "Please input your password!" }]}
+        rules={[{ required: true, message: "Required field" }]}
       >
         <Input.Password />
       </Form.Item>
 
       <Form.Item<FieldType>
-        label="Repeat password"
-        name="repeatPassword"
-        rules={[{ required: true, message: "Please input your password!" }]}
+        label="Confirm password"
+        name="confirmPassword"
+        dependencies={["password"]}
+        rules={[
+          { required: true, message: "Required field" },
+          ({ getFieldValue }) => ({
+            validator(_, value) {
+              if (!value || getFieldValue("password") === value)
+                return Promise.resolve();
+              return Promise.reject(new Error("Passwords are not equal"));
+            },
+          }),
+        ]}
       >
         <Input.Password />
       </Form.Item>

@@ -1,23 +1,19 @@
 import { Link } from "react-router-dom";
-import { LogInForm } from "../../../features/auth";
+import { Button } from "antd";
+import Title from "antd/es/typography/Title";
 import { PAGE, PageTitle } from "../../../shared/router";
+import { LogInForm } from "../../../features/auth";
 
 export const LogInPage = (): JSX.Element => {
   return (
     <>
       <PageTitle />
 
-      <h2>Log in</h2>
-
+      <Title>Log in</Title>
       <LogInForm />
-      <Link
-        type="button"
-        // className={styles.button}
-        // variant="link"
-        to={PAGE.register}
-        // disabled={isPending}
-      >
-        Sign up
+
+      <Link to={PAGE.register}>
+        <Button type="link">Register</Button>
       </Link>
     </>
   );
