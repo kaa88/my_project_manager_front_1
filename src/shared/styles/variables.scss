@@ -2,6 +2,8 @@
 @forward "functions";
 @forward "breakpoints";
 
+// удалить всё, кроме mixin, func
+
 // transitions
 $timer-hover: 0.15s;
 $timer-sidebar: 0.2s;

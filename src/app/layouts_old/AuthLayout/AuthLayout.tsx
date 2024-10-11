@@ -17,11 +17,6 @@ import { ProjectInfo } from "../../../widgets/ui/components/ProjectInfo/ProjectI
 import { TechnicalWorkAlert } from "../../../widgets/ui/components/TechnicalWorkAlert/TechnicalWorkAlert";
 import { AuthRedirect } from "../../../features/auth";
 
-import { Breadcrumb, Layout, Menu, theme } from "antd";
-import type { MenuProps } from "antd";
-
-const { Header, Content, Footer, Sider } = Layout;
-
 interface AuthLayoutProps extends ComponentPropsWithoutRef<"div"> {
   variant?: "error";
 }
@@ -38,36 +33,44 @@ export const AuthLayout = ({
 
   // AuthRedirect
 
-  // const headerRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
 
-  // const calcHeaderHeight = () => {
-  //   if (headerRef.current) {
-  //     const height = headerRef.current.offsetHeight;
-  //     cssVariable.set("header-height", height + "px");
-  //   }
-  // };
+  const calcHeaderHeight = () => {
+    if (headerRef.current) {
+      const height = headerRef.current.offsetHeight;
+      cssVariable.set("header-height", height + "px");
+    }
+  };
 
-  // useLayoutEffect(() => {
-  //   calcHeaderHeight();
-  //   window.addEventListener("resize", calcHeaderHeight);
-  //   return () => window.removeEventListener("resize", calcHeaderHeight);
-  // }, []); // eslint-disable-line
-
-  const items1: MenuProps["items"] = ["1", "2", "3"].map((key) => ({
-    key,
-    label: `nav ${key}`,
-  }));
+  useLayoutEffect(() => {
+    calcHeaderHeight();
+    window.addEventListener("resize", calcHeaderHeight);
+    return () => window.removeEventListener("resize", calcHeaderHeight);
+  }, []); // eslint-disable-line
 
   return (
     <AuthRedirect>
-      <Layout>
-        <Header className={styles.header}>{process.env.REACT_APP_TITLE}</Header>
-        <Content>
+      <div className={cn(styles._, !!variant && styles[variant])}>
+        <div className={styles.bg}>
+          <div></div>
+          <div></div>
+        </div>
+
+        <header className={styles.header} ref={headerRef}>
+          <TechnicalWorkAlert className={styles.techAlert} />
+
+          <div className={styles.banner}>
+            <h2>{process.env.REACT_APP_TITLE}</h2>
+          </div>
+        </header>
+
+        <main className={styles.main}>
           <ScrollRestoration />
-          {children || <Outlet />}
-        </Content>
-        <Footer>Footer</Footer>
-      </Layout>
+          <div className={styles.container}>{children || <Outlet />}</div>
+        </main>
+
+        <ProjectInfo className={styles.info} />
+      </div>
     </AuthRedirect>
   );
 };

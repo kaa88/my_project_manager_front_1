@@ -1,10 +1,11 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { uiPersistReducer, uiReducer } from "../../widgets/ui";
+import { authReducer } from "../../features/auth";
 
 const rootReducer = combineReducers({
   ui: uiReducer,
   uiPersist: uiPersistReducer,
-  // auth: authReducer,
+  auth: authReducer,
 });
 
 export const store = configureStore({

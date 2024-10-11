@@ -2,7 +2,7 @@ import styles from "./AccountSidebar.module.scss";
 import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
 
-import { useAppDispatch, useAppSelector } from "../../../../shared/store";
+import { useAppDispatch, useAppSelector } from "../../../../app/store";
 
 import { setSidebarCollapsed } from "../../storePersist";
 

@@ -1,12 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import { fixPath } from "../../shared/utils";
-
-import { PAGE } from "../../shared/router/const";
-
 import { AuthLayout, AccountLayout } from "../layouts";
-// import { AuthRedirect, NoAuthRedirect } from "../../features/auth";
-
+import { PAGE } from "../../shared/router/const";
 import * as Pages from "../../pages";
 
 export const Router = () => {
@@ -18,11 +13,7 @@ export const Router = () => {
       },
 
       {
-        element: (
-          // <AuthRedirect>
-          <AuthLayout />
-          // </AuthRedirect>
-        ),
+        element: <AuthLayout />,
         children: [
           {
             path: PAGE.root,
@@ -40,11 +31,7 @@ export const Router = () => {
       },
 
       {
-        element: (
-          // <NoAuthRedirect>
-          <AccountLayout />
-          // </NoAuthRedirect>
-        ),
+        element: <AccountLayout />,
         children: [
           {
             path: PAGE.profile,
