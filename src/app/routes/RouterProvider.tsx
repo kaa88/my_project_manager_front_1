@@ -1,10 +1,13 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider as Provider,
+} from "react-router-dom";
 import { fixPath } from "../../shared/utils";
 import { AuthLayout, AccountLayout } from "../layouts";
 import { PAGE } from "../../shared/router/const";
 import * as Pages from "../../pages";
 
-export const Router = () => {
+export const RouterProvider = () => {
   const router = createBrowserRouter(
     [
       {
@@ -87,5 +90,5 @@ export const Router = () => {
     }
   );
 
-  return <RouterProvider router={router} />;
+  return <Provider router={router} />;
 };

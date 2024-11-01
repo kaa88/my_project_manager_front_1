@@ -1,7 +1,7 @@
 import styles from "./BoardListPage.module.scss";
 import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 import cn from "classnames";
-import { ITask } from "../../../features/task";
+import { ITask } from "../../../entities/task";
 import { PAGE, PageTitle } from "../../../shared/router";
 import { Button } from "../../../shared/ui";
 // import { api } from "../../api";

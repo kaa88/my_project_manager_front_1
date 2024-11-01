@@ -22,19 +22,19 @@ export const Task = ({
   const [task, setTask] = useState<ITask | null>(null);
   const [pending, setPending] = useState(false);
 
-  useEffect(() => {
-    if (id) {
-      setPending(true);
-      api
-        .getTask(id)
-        .then((res) => {
-          console.log(res);
-          setTask(res.data);
-        })
-        .catch((err) => console.log(err))
-        .finally(() => setPending(false));
-    }
-  }, []); // eslint-disable-line
+  // useEffect(() => {
+  //   if (id) {
+  //     setPending(true);
+  //     api
+  //       .getTask(id)
+  //       .then((res) => {
+  //         console.log(res);
+  //         setTask(res.data);
+  //       })
+  //       .catch((err) => console.log(err))
+  //       .finally(() => setPending(false));
+  //   }
+  // }, []); // eslint-disable-line
 
   return (
     <div className={cn([className, styles._])} {...props}>

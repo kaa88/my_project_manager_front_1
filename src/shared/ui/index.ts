@@ -12,6 +12,7 @@ export * from "./components/InputPassword/InputPassword";
 export * from "./components/InputText/InputText";
 export * from "./components/Modal/Modal";
 export * from "./components/ModalAlert/ModalAlert";
+export * from "./components/Page/Page";
 export * from "./components/Pagination/Pagination";
 export * from "./components/Spinner/Spinner";
 export * from "./components/UpButton/UpButton";

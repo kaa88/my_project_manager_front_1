@@ -3,7 +3,7 @@ import cn from "classnames";
 import styles from "./BoardTaskList.module.scss";
 import { IKanbanLabel } from "../../types";
 import { BoardTask } from "../BoardTask/BoardTask";
-import { ITask, api as taskApi } from "../../../task";
+import { ITask, api as taskApi } from "../../../../entities/task";
 import { Spinner } from "../../../../shared/ui";
 
 interface BoardTaskListProps extends ComponentPropsWithoutRef<"div"> {
@@ -20,17 +20,17 @@ export const BoardTaskList = ({
   const [pending, setPending] = useState(false);
   const [tasks, setTasks] = useState<ITask[]>([]);
 
-  useEffect(() => {
-    setPending(true);
-    taskApi
-      .getTaskList()
-      .then((res) => {
-        console.log(res);
-        setTasks(res.data);
-      })
-      .catch((err) => console.log(err))
-      .finally(() => setPending(false));
-  }, []); // eslint-disable-line
+  // useEffect(() => {
+  //   setPending(true);
+  //   taskApi
+  //     .getTaskList()
+  //     .then((res) => {
+  //       console.log(res);
+  //       setTasks(res.data);
+  //     })
+  //     .catch((err) => console.log(err))
+  //     .finally(() => setPending(false));
+  // }, []); // eslint-disable-line
 
   return (
     <div className={cn([className, styles._])} {...props}>

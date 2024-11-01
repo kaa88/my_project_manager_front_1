@@ -8,3 +8,6 @@ export const apiConfig = {
 };
 
 export const apiInstance = axios.create(apiConfig);
+// use tokenRefreshMiddleware
+
+// TODO: find a way to apply middlewares here avoiding cyclic links

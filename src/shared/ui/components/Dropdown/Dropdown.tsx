@@ -8,13 +8,13 @@ import {
 } from "react";
 import cn from "classnames";
 
-import { useAppDispatch, useAppSelector } from "../../../../app/store";
 // import { setActiveDropdown } from "../../store";
 
 // мб сделать здесь свой файл стора или контекст?
 
 import { Button } from "../Button/Button";
 import { Icon } from "../Icon/Icon";
+import { useAppDispatch, useAppSelector } from "../../../store";
 
 export interface DropdownItem {
   key: string;

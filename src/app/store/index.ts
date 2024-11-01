@@ -1,3 +1,2 @@
-export * from "./hooks";
-// export * from "./migrations";
 export * from "./store";
+export * from "./StoreProvider";

@@ -6,7 +6,7 @@ import { AccountHeader } from "../../../widgets/ui/components/AccountHeader/Acco
 import { AccountSidebar } from "../../../widgets/ui/components/AccountSidebar/AccountSidebar";
 import { TechnicalWorkAlert } from "../../../widgets/ui/components/TechnicalWorkAlert/TechnicalWorkAlert";
 import { NoAuthRedirect } from "../../../features/auth";
-import { useAppSelector } from "../../store";
+import { useAppSelector } from "../../../shared/store";
 
 export const AccountLayout = ({
   children,

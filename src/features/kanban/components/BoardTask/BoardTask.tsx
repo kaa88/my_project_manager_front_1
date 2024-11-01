@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef } from "react";
 import cn from "classnames";
 import styles from "./BoardTask.module.scss";
-import { ITask } from "../../../task";
+import { ITask } from "../../../../entities/task";
 import { PAGE } from "../../../../shared/router";
 import { Link } from "react-router-dom";
 import { Icon } from "../../../../shared/ui";

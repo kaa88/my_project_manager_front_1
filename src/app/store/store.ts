@@ -1,17 +1,23 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { uiPersistReducer, uiReducer } from "../../widgets/ui";
-import { authReducer } from "../../features/auth";
+import { configureStore } from "@reduxjs/toolkit";
+import createSagaMiddleware from "redux-saga";
+import { persistStore } from "redux-persist";
+import { persistedReducer } from "./persist";
+import { rootSaga } from "./saga";
 
-const rootReducer = combineReducers({
-  ui: uiReducer,
-  uiPersist: uiPersistReducer,
-  auth: authReducer,
-});
+const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
-  reducer: rootReducer,
-  middleware: undefined,
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+      thunk: false,
+    }).concat(sagaMiddleware),
 });
+
+export const persistor = persistStore(store);
+
+sagaMiddleware.run(rootSaga);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

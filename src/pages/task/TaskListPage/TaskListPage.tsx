@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 import cn from "classnames";
 // import { api } from "../../api";
 import { Link } from "react-router-dom";
-import { ITask } from "../../../features/task";
+import { ITask } from "../../../entities/task";
 import { PAGE, PageTitle } from "../../../shared/router";
 import { Button, Spinner } from "../../../shared/ui";
 

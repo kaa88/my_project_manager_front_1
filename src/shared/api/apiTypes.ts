@@ -1,18 +1,26 @@
+export type ApiId = number;
+
+/** Use this ID in URL query. API also receives 'string' numbers separated by commas. */
+export type ApiQueryId = ApiId | string;
+
+/** Use this ID in http body. API also receives 'string' numbers separated by commas. */
+export type ApiMultiId = ApiId | ApiId[] | string;
+
 export type ApiBasicEntity = {
-  id: number;
+  id: ApiId;
   createdAt?: Date | number; // ? number
   updatedAt?: Date | number; // ? number
   deletedAt?: Date | number; // ? number
 };
 
 export type ApiProjectElemEntity = ApiBasicEntity & {
-  relativeId: number;
-  projectId: number;
+  relativeId: ApiId;
+  projectId: ApiId;
   project?: object; // ?
 };
 
 export type ApiBoardElemEntity = ApiProjectElemEntity & {
-  boardId: number;
+  boardId: ApiId;
   board?: object; // ?
 };
 

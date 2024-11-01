@@ -1,5 +1,5 @@
 ## My Project Manager (front variant 1)
 
-__Stack NEW__: CRA, React, Redux toolkit, Redux Saga, SCSS, AntD, react-final-form (ReduxForm) ?
+__Stack__: CRA, React, Redux toolkit, Redux Saga, SCSS, AntDesign
 
 __Installation__: `yarn install && yarn dev`

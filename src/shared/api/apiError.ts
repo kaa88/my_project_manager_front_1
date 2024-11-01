@@ -1,93 +1,100 @@
 import { AxiosError, AxiosHeaders } from "axios";
 
-export const ERROR_BAD_REQUEST = 400;
-export const ERROR_UNAUTHORIZED = 401;
-export const ERROR_NO_CREDENTIALS = 403;
-export const ERROR_NOT_FOUND = 404;
-export const ERROR_DISTRIBUTION_CANCELLED = 409;
-export const ERROR_INTERNAL = 500;
-export const MISSING_FETCH_DATA_MESSAGE = "Missing required query data";
+export const MISSING_FETCH_DATA_MESSAGE = "Missing required query data"; // ?
 
-const unknownCode = 0;
+export const ERROR_CODE_BAD_REQUEST = 400;
+export const ERROR_CODE_UNAUTHORIZED = 401;
+export const ERROR_CODE_NO_CREDENTIALS = 403;
+export const ERROR_CODE_NOT_FOUND = 404;
+export const ERROR_CODE_DISTRIBUTION_CANCELLED = 409;
+export const ERROR_CODE_INTERNAL = 500;
+export const ERROR_CODE_UNKNOWN = 0;
 
-type StatusCode = number | undefined;
+type StatusCode = number;
 
-export interface ThunkapiErrorObj {
-  status?: StatusCode;
-  data?: any;
+export class ApiErrorObj {
+  status: StatusCode;
+  data: any;
+  constructor(error: any) {
+    this.status =
+      typeof error?.status === "number" ? error.status : ERROR_CODE_UNKNOWN;
+    this.data = error?.data;
+  }
 }
 
 export const apiError = {
+  /** Converts any error into AxiosError */
   getErrorInstance: (error: unknown): AxiosError => {
     let newError: AxiosError;
-
     if (error instanceof AxiosError && error.isAxiosError) newError = error;
     else {
       newError = new AxiosError();
       const message = error instanceof Error ? error.message : undefined;
-
       if (message) {
         newError.response = {
           data: message,
-          status: unknownCode,
+          status: ERROR_CODE_UNKNOWN,
           statusText: "",
           headers: {},
           config: { headers: new AxiosHeaders() },
         };
       }
     }
-
     return newError;
   },
 
-  getErrorObject: (error: unknown): ThunkapiErrorObj => {
+  /** Converts any error into ApiErrorObj with:
+   * @param status - http status
+   * @param data - response data or error message
+   */
+  getErrorObject: (error: unknown): ApiErrorObj => {
+    let source = error;
     if (error instanceof AxiosError && error.isAxiosError) {
-      return {
-        status: error.response?.status,
-        data: error.response?.data,
-      };
+      source = error.response;
     } else if (error instanceof Error) {
-      return {
-        status: unknownCode,
+      source = {
+        status: ERROR_CODE_UNKNOWN,
         data: error.message,
       };
-    } else return {};
+    }
+    return new ApiErrorObj(source);
   },
 
   getStatusCode: (error: unknown): StatusCode => {
-    return error instanceof AxiosError ? error.response?.status : undefined;
+    return error instanceof AxiosError
+      ? error.response?.status || ERROR_CODE_UNKNOWN
+      : ERROR_CODE_UNKNOWN;
   },
 
   getMessageFromCode: (code: StatusCode): string => {
     switch (code) {
-      case ERROR_BAD_REQUEST:
+      case ERROR_CODE_BAD_REQUEST:
         return "Bad request";
-      case ERROR_UNAUTHORIZED:
+      case ERROR_CODE_UNAUTHORIZED:
         return "Wrong credentials";
-      case ERROR_NO_CREDENTIALS:
+      case ERROR_CODE_NO_CREDENTIALS:
         return "Credentials were not provided";
-      case ERROR_NOT_FOUND:
+      case ERROR_CODE_NOT_FOUND:
         return "Not found";
-      case ERROR_DISTRIBUTION_CANCELLED:
+      case ERROR_CODE_DISTRIBUTION_CANCELLED:
         return "Distribution cancelled";
-      case ERROR_INTERNAL:
+      case ERROR_CODE_INTERNAL:
         return "Internal server error";
       default:
         return "Unknown error";
     }
   },
 
+  /** Collects errors from data whether it is a string / array / object into one message */
   getMessageFromData: (data: any): string => {
     const iterate = (arr: any[]): string => {
       const messages: string[] = arr.map((item) =>
         apiError.getMessageFromData(item)
       );
       let msg = "";
-
       messages.forEach((item) => {
         if (item) msg += ` ${item}`;
       });
-
       return msg.trim();
     };
 
@@ -99,13 +106,14 @@ export const apiError = {
     return "";
   },
 
-  getMessageFromError: (error: ThunkapiErrorObj): string => {
+  /** Combines 'getMessageFromData' and 'getMessageFromCode' */
+  getMessageFromError: (error: ApiErrorObj): string => {
     let message = error.data
       ? apiError.getMessageFromData(error.data)
-      : apiError.getMessageFromCode(error.status || unknownCode);
+      : apiError.getMessageFromCode(error.status || ERROR_CODE_UNKNOWN);
 
     if (message.match(/!doctype/i))
-      message = apiError.getMessageFromCode(error.status || unknownCode);
+      message = apiError.getMessageFromCode(error.status || ERROR_CODE_UNKNOWN);
 
     return message;
   },

@@ -3,9 +3,9 @@ import { ComponentPropsWithoutRef, memo } from "react";
 import { NavLink } from "react-router-dom";
 import cn from "classnames";
 
-import { useAppSelector } from "../../../../app/store";
 import { PAGE } from "../../../../shared/router";
 import { IconName, Icon } from "../../../../shared/ui";
+import { useAppSelector } from "../../../../shared/store";
 
 interface NavItem {
   link: string;

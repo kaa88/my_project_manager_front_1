@@ -1,31 +1,20 @@
 import { apiInstance } from "../../../app/api";
-import * as types from "../models";
+import { userApi } from "../../../entities/user";
+import * as types from "../model/types";
 
-export const api = {
-  register(data: types.RegisterRequest) {
-    return apiInstance.post<types.RegisterResponse>("/v1/user/create", data);
+export const authApi = {
+  register: userApi.createUser,
+  login(req: types.LogInRequest) {
+    return apiInstance.post<types.LogInResponse>("/v1/user/login", req);
   },
-  login(data: types.LogInRequest) {
-    return apiInstance.post<types.LogInResponse>("/v1/user/login", data);
-  },
-  logout(data: types.LogOutRequest) {
-    return apiInstance.post<types.LogOutResponse>("/v1/user/logout", data);
-  },
-  restorePassword(data: types.RestorePasswordRequest) {
-    return apiInstance.post<types.RestorePasswordResponse>(
-      "/v1/user/restore_password",
-      data
+  logout(req: types.LogOutRequest) {
+    const query = `?id=${req.id}`;
+    return apiInstance.post<types.LogOutResponse>(
+      "/v1/user/logout" + query,
+      req
     );
   },
-  restorePasswordConfirm(data: types.RestorePasswordConfirmRequest) {
-    return apiInstance.post<types.RestorePasswordConfirmResponse>(
-      "/v1/user/restore_password_confirm",
-      data
-    );
-  },
-
-  getUsers() {
-    // temp - move to user module
-    return apiInstance.get<{ max: number }>("/v1/profile/list");
+  checkAuth() {
+    return apiInstance.get<unknown>("/v1/auth_check");
   },
 };
